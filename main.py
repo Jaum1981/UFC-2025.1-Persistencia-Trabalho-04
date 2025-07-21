@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from routes.biomaRoute import router as bioma_router
 from routes.edificioRouter import router as edificio_router
+from routes.especimeRouter import router as especime_router
+from routes.enquadramentoRouter import router as enquadramento_router
+from routes.AutoInfracaoRouter import router as auto_infracao_router
 from database import edificio_IBAMA_collection
-import uvicorn
 
 app = FastAPI(
     title="IBAMA API",
@@ -20,3 +22,6 @@ async def ensure_geo_index():
 
 app.include_router(bioma_router)
 app.include_router(edificio_router)
+app.include_router(especime_router)
+app.include_router(enquadramento_router)
+app.include_router(auto_infracao_router)
