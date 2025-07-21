@@ -1,6 +1,4 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query
-from motor.motor_asyncio import AsyncIOMotorClient
-from pydantic import BaseModel
 from database import edificio_IBAMA_collection
 import pandas as pd
 import io, re
@@ -100,3 +98,11 @@ async def nearby(
         raise
     except Exception as e:
         raise HTTPException(500, f"Erro na consulta geoespacial: {e}")
+    
+@router.get("/count_edificio")
+async def count_edificio():
+    try:
+        count = await edificio_IBAMA_collection.count_documents({})
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")

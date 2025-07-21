@@ -81,3 +81,11 @@ async def upload_enquadramento_csv(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+
+@router.get("/count_enquadramento")
+async def count_enquadramento():
+    try:
+        count = await enquadramento_collection.count_documents({})
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")

@@ -88,3 +88,12 @@ async def upload_auto_infracao_csv(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+
+
+@router.get("/count_auto_infracao")
+async def count_auto_infracao():
+    try:
+        count = await auto_infracao_collection.count_documents({})
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")

@@ -64,3 +64,11 @@ async def upload_especime_csv(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+
+@router.get("/count_especime")
+async def count_especime():
+    try:
+        count = await especime_collection.count_documents({})
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
