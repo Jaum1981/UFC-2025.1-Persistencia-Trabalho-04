@@ -1,0 +1,41 @@
+2025-07-21 19:25:08,323 - INFO - Consulta completa para auto 1000
+2025-07-21 19:25:08,582 - ERROR - Erro na consulta completa do auto 1000
+Traceback (most recent call last):
+  File "C:\Users\fpaul\Documents\GitHub\UFC-2025.1-Persistencia-Trabalho-04\routes\Avancadas.py", line 73, in consulta_completa
+    raise HTTPException(404, "Auto não encontrado.")
+fastapi.exceptions.HTTPException: 404: Auto não encontrado.
+2025-07-21 19:27:01,738 - INFO - Consultando dados para o município: Fortaleza
+2025-07-21 19:27:01,973 - ERROR - Erro na consulta por município Fortaleza: 404: Nenhum auto de infração encontrado para Fortaleza
+2025-07-21 19:28:05,154 - INFO - Consultando dados para o município: Marabá
+2025-07-21 19:28:05,251 - ERROR - Erro na consulta por município Marabá: 404: Nenhum auto de infração encontrado para Marabá
+2025-07-21 19:28:40,539 - INFO - Consultando dados para o município: Barreiras
+2025-07-21 19:28:40,596 - ERROR - Erro na consulta por município Barreiras: 404: Nenhum auto de infração encontrado para Barreiras
+2025-07-21 19:30:04,602 - INFO - Consultando dados para o município: Barreiras
+2025-07-21 19:30:04,780 - ERROR - Erro na consulta por município Barreiras: 404: Nenhum auto de infração encontrado para Barreiras
+2025-07-21 19:31:01,029 - INFO - Consultando dados para o município: Barreiras
+2025-07-21 19:31:01,070 - ERROR - Erro na consulta por município Barreiras: 404: Nenhum auto de infração encontrado para Barreiras
+2025-07-21 19:31:52,648 - INFO - Consultando dados para o município: TERESINA
+2025-07-21 19:31:54,564 - ERROR - Erro na consulta por município TERESINA: 1 validation error for AutoInfracaoOut
+_id
+  Input should be a valid string [type=string_type, input_value=ObjectId('687e9c885a8a6ee17323a871'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-21 19:33:15,604 - INFO - Consultando dados para o município: TERESINA
+2025-07-21 19:33:17,487 - ERROR - Erro na consulta por município TERESINA: 1 validation error for AutoInfracaoOut
+_id
+  Input should be a valid string [type=string_type, input_value=ObjectId('687e9c885a8a6ee17323a871'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-21 19:35:08,051 - INFO - Consultando dados para o município: TERESINA
+2025-07-21 19:35:09,679 - ERROR - Erro na consulta por município TERESINA: 1 validation error for AutoInfracaoOut
+_id
+  Input should be a valid string [type=string_type, input_value=ObjectId('687e9c885a8a6ee17323a871'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-21 19:36:20,631 - INFO - Consultando dados para o município: TERESINA
+2025-07-21 19:36:21,898 - ERROR - Erro na consulta por município TERESINA: 1 validation error for AutoInfracaoOut
+_id
+  Input should be a valid string [type=string_type, input_value=ObjectId('687e9c885a8a6ee17323a871'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-21 19:37:55,317 - INFO - Consultando dados para o município: TERESINA
+2025-07-21 19:37:56,955 - ERROR - Erro na consulta por município TERESINA: 1 validation error for AutoInfracaoOut
+_id
+  Input should be a valid string [type=string_type, input_value=ObjectId('687e9c885a8a6ee17323a871'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type

@@ -1,11 +1,10 @@
+from bson import ObjectId
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query
-from motor.motor_asyncio import AsyncIOMotorClient
-from pydantic import BaseModel
 from database import edificio_IBAMA_collection
 import pandas as pd
 import io, re
 
-from models.edificio_IBAMA import Edf_Pub_Civil_IBAMACreate, Edf_Pub_Civil_IBAMAOut
+from models.edificio_IBAMA import Edf_Pub_Civil_IBAMACreate, Edf_Pub_Civil_IBAMAOut, PaginatedEdf_Pub_Civil_IBAMAResponse
 
 
 router = APIRouter(prefix="/edf", tags=["Edf Pub Civil IBAMA"])
@@ -100,3 +99,36 @@ async def nearby(
         raise
     except Exception as e:
         raise HTTPException(500, f"Erro na consulta geoespacial: {e}")
+    
+@router.get("/count_edificio")
+async def count_edificio():
+    try:
+        count = await edificio_IBAMA_collection.count_documents({})
+        return {"count": count}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
+    
+@router.get("/edificios", response_model=PaginatedEdf_Pub_Civil_IBAMAResponse)
+async def get_edificios(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
+    try:
+        total = await edificio_IBAMA_collection.count_documents({})
+        items = await edificio_IBAMA_collection.find().skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        return PaginatedEdf_Pub_Civil_IBAMAResponse(total=total, page=page, size=page_size, items=items)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+    
+@router.get("/edificio/{edificio_id}", response_model=Edf_Pub_Civil_IBAMAOut)
+async def get_edificio(edificio_id: str):
+    try:
+        if not ObjectId.is_valid(edificio_id):
+            raise HTTPException(status_code=400, detail="ID inválido")
+        
+        edificio = await edificio_IBAMA_collection.find_one({"_id": ObjectId(edificio_id)})
+        if not edificio:
+            raise HTTPException(status_code=404, detail="Edifício não encontrado")
+        
+        edificio["_id"] = str(edificio["_id"])  # Converte _id para string
+        return Edf_Pub_Civil_IBAMAOut(**edificio)
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar edifício: {e}")

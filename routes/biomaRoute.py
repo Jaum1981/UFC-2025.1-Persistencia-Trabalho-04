@@ -1,8 +1,7 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query
 from database import bioma_collection
-from models.bioma import BiomaCreate, BiomaOut, PaginatedBiomasResponse, PaginationMeta
+from models.bioma import BiomaCreate, BiomaOut, PaginatedBiomaResponse
 from bson import ObjectId
-import math
 import pandas as pd
 import io
 import numpy as np
@@ -81,7 +80,7 @@ async def upload_biomas(file: UploadFile = File(...)):
         resultado = await bioma_collection.insert_many(registros)
         
         return {
-            "message": f"Upload realizado com sucesso!",
+            "message": "Upload realizado com sucesso!",
             "total_processados": len(df),
             "total_inseridos": len(resultado.inserted_ids),
             "total_erros": len(registros_com_erro),
@@ -94,44 +93,28 @@ async def upload_biomas(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Erro interno do servidor: {str(e)}")
 
 
-@router.get("/biomas", response_model=PaginatedBiomasResponse)
-async def listar_biomas(
-    skip: int = Query(0, ge=0, description="Número de registros a pular"),
-    limit: int = Query(10, ge=1, le=200, description="Número de registros por página")
-):
-    """
-    Listar biomas com metadados de paginação.
-    """
+@router.get("/biomas", response_model=PaginatedBiomaResponse)
+async def get_biomas(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
     try:
-        # 1. Contar o total de documentos na coleção (sem paginação)
-        total_items = await bioma_collection.count_documents({})
+        skip = (page - 1) * page_size
+        total = await bioma_collection.count_documents({})
+        biomas = await bioma_collection.find({}).skip(skip).limit(page_size).to_list(length=page_size)
 
-        # 2. Calcular metadados da paginação
-        total_pages = math.ceil(total_items / limit)
-        current_page = (skip // limit) + 1
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
 
-        # 3. Buscar os documentos da página atual
-        cursor = bioma_collection.find({}).skip(skip).limit(limit)
-        
-        # Forma mais concisa de montar a lista
-        biomas_list = [
-            BiomaOut(**{**doc, "_id": str(doc["_id"])}) 
-            async for doc in cursor
-        ]
+        items = [BiomaOut(**serialize(doc)) for doc in biomas]
 
-        # 4. Montar o objeto de resposta final
-        return PaginatedBiomasResponse(
-            meta=PaginationMeta(
-                total_items=total_items,
-                total_pages=total_pages,
-                current_page=current_page,
-                limit=limit
-            ),
-            data=biomas_list
+        return PaginatedBiomaResponse(
+            total=total,
+            page=page,
+            size=page_size,
+            items=items
         )
-        
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erro ao buscar biomas: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
 @router.get("/biomas/{bioma_id}", response_model=BiomaOut)
 async def obter_bioma(bioma_id: str):
