@@ -1,9 +1,10 @@
-from fastapi import APIRouter, HTTPException, UploadFile, File
-from models.auto_infracao import AutoInfracaoCreate, AutoInfracaoOut
+from bson import ObjectId
+from fastapi import APIRouter, HTTPException, Query, UploadFile, File
+from models.auto_infracao import AutoInfracaoCreate, AutoInfracaoOut, PaginatedAutoInfracaoResponse
 from database import auto_infracao_collection
 import pandas as pd
 import io
-from datetime import datetime
+from datetime import datetime, timedelta
 import math
 
 router = APIRouter(prefix="/auto_infracao", tags=["Auto de Infração"])
@@ -97,3 +98,45 @@ async def count_auto_infracao():
         return {"count": count}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
+
+@router.get("/get_by_date", response_model=list[AutoInfracaoOut])
+async def get_auto_infracao_by_date(data: str = Query(..., description="Formato: AAAA-MM-DD")):
+    try:
+        # Converte a string para datetime (início do dia)
+        data_inicio = datetime.strptime(data, "%Y-%m-%d")
+        # Define o fim do dia (23h59m59s)
+        data_fim = data_inicio + timedelta(days=1)
+
+        documentos = await auto_infracao_collection.find({
+            "dat_hora_auto_infracao": {
+                "$gte": data_inicio,
+                "$lt": data_fim
+            }
+        }).to_list(length=None)
+
+        # Garante que o _id seja convertido para string se necessário
+        return [AutoInfracaoOut(**{**doc, "_id": str(doc["_id"])}) for doc in documentos]
+
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Formato de data inválido. Use AAAA-MM-DD.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
+@router.get("/auto_infracoes", response_model=PaginatedAutoInfracaoResponse)
+async def get_auto_infracoes(page: int = 1, page_size: int = 10):
+    try:
+        total = await auto_infracao_collection.count_documents({})
+        items = await auto_infracao_collection.find().skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        return PaginatedAutoInfracaoResponse(total=total, page=page, size=page_size, items=items)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+    
+@router.get("/auto_infracaoget_by_id/{id}", response_model=AutoInfracaoOut)
+async def get_auto_by_id(id: str):
+    try:
+        auto = await auto_infracao_collection.find_one({"_id": ObjectId(id)})
+        if not auto:
+            raise HTTPException(status_code=404, detail="Auto de infração não encontrado")
+        return AutoInfracaoOut(**{**auto, "_id": str(auto["_id"])})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar por id: {e}")

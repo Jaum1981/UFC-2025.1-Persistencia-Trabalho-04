@@ -1,5 +1,6 @@
+from bson import ObjectId
 from fastapi import APIRouter, HTTPException, UploadFile, File
-from models.enquadramento import EnquadramentoCreate, EnquadramentoOut
+from models.enquadramento import EnquadramentoCreate, EnquadramentoOut, PaginatedEnquadramentoResponse
 from database import enquadramento_collection
 import pandas as pd
 import io
@@ -89,3 +90,23 @@ async def count_enquadramento():
         return {"count": count}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
+
+@router.get("/enquadramentos", response_model=PaginatedEnquadramentoResponse)
+async def get_enquadramentos(page: int = 1, page_size: int = 10):
+    try:
+        total = await enquadramento_collection.count_documents({})
+        items = await enquadramento_collection.find().skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        return PaginatedEnquadramentoResponse(total=total, page=page, size=page_size, items=items)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
+@router.get("/enquadramento/{enquadramento_id}", response_model=EnquadramentoOut)
+async def get_enquadramento(enquadramento_id: str):
+    try:
+        doc = await enquadramento_collection.find_one({"_id": ObjectId(enquadramento_id)})
+        if not doc:
+            raise HTTPException(status_code=404, detail="Enquadramento não encontrado.")
+        doc["_id"] = str(doc["_id"])  # converte _id para string
+        return EnquadramentoOut(**doc)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")

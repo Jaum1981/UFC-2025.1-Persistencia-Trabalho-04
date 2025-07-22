@@ -1,18 +1,7 @@
-from datetime import datetime
-from typing import List, Optional
+from typing import List
 from bson import ObjectId
 from pydantic import BaseModel, Field
-
-class PyObjectId(ObjectId):
-    @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
-
-    @classmethod
-    def validate(cls, v, *args, **kwargs):
-        if not ObjectId.is_valid(v):
-            raise ValueError("ID inválido")
-        return str(v)
+from models.PyObjectId import PyObjectId
     
 class Edf_Pub_Civil_IBAMA(BaseModel):
     nome: str
@@ -27,7 +16,19 @@ class Edf_Pub_Civil_IBAMACreate(Edf_Pub_Civil_IBAMA):
     pass
 
 class Edf_Pub_Civil_IBAMAOut(Edf_Pub_Civil_IBAMA):
-    id: Optional[str] = Field(default=None, alias="_id")
+    id: PyObjectId = Field(..., alias="_id")
+
+    class Config:
+        json_encoders = {
+            ObjectId: str
+        }
+        populate_by_name = True
+    
+class PaginatedEdf_Pub_Civil_IBAMAResponse(BaseModel):
+    total: int
+    page: int
+    size: int
+    items: List[Edf_Pub_Civil_IBAMAOut]
 
     class Config:
         json_encoders = {

@@ -1,5 +1,6 @@
-from fastapi import APIRouter, HTTPException, UploadFile, File
-from models.especime import EspecimeCreate, EspecimeOut
+from bson import ObjectId
+from fastapi import APIRouter, HTTPException, Query, UploadFile, File
+from models.especime import EspecimeCreate, EspecimeOut, PaginatedEspecimeResponse
 from database import especime_collection
 import pandas as pd
 import io
@@ -64,6 +65,29 @@ async def upload_especime_csv(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+    
+@router.get("/especimes", response_model=PaginatedEspecimeResponse)
+async def get_especimes(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    try:
+        skip = (page - 1) * page_size
+        total = await especime_collection.count_documents({})
+        especimes = await especime_collection.find({}).skip(skip).limit(page_size).to_list(length=page_size)
+
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
+
+        items = [EspecimeOut(**serialize(doc)) for doc in especimes]
+
+        return PaginatedEspecimeResponse(
+            total=total,
+            page=page,
+            size=page_size,
+            items=items
+        )
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
 @router.get("/count_especime")
 async def count_especime():
@@ -72,3 +96,14 @@ async def count_especime():
         return {"count": count}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
+    
+@router.get("/especime/{especime_id}", response_model=EspecimeOut)
+async def get_especime(especime_id: str):
+    try:
+        especime = await especime_collection.find_one({"_id": ObjectId(especime_id)})
+        if not especime:
+            raise HTTPException(status_code=404, detail="Especime não encontrado.")
+        especime["_id"] = str(especime["_id"])  # Converte _id para string
+        return EspecimeOut(**especime)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar especime: {e}")

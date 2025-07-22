@@ -1,18 +1,6 @@
 from datetime import datetime
-from typing import List, Optional
-from bson import ObjectId
-from pydantic import BaseModel, Field
-
-class PyObjectId(ObjectId):
-    @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
-
-    @classmethod
-    def validate(cls, v, *args, **kwargs):
-        if not ObjectId.is_valid(v):
-            raise ValueError("ID inválido")
-        return str(v)
+from typing import List
+from pydantic import BaseModel
     
 class Infrator(BaseModel):
     nome_infrator: str
