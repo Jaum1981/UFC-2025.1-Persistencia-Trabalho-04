@@ -6,6 +6,8 @@ import math
 import pandas as pd
 import io
 import numpy as np
+import matplotlib.pyplot as plt
+from typing import Optional
 
 router = APIRouter(prefix="/biomas", tags=["Biomas"])
 
@@ -157,3 +159,114 @@ async def contar_biomas():
         return {"total_biomas": total}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao contar biomas: {str(e)}")
+    
+@router.get("/biomas_report")
+async def get_biomas_report():
+    """
+    Gera um relatório de insights sobre os biomas, incluindo um gráfico.
+    """
+    try:
+        cursor = bioma_collection.find({})
+        data = await cursor.to_list(length=None)
+        
+        if not data:
+            raise HTTPException(status_code=404, detail="Nenhum dado de bioma encontrado para gerar relatório.")
+
+        df = pd.DataFrame(data)
+
+        # Insights: Contagem de infrações por bioma
+        infracoes_por_bioma = df['bioma'].value_counts().reset_index()
+        infracoes_por_bioma.columns = ['bioma', 'total_infracoes']
+
+        # Gerar gráfico
+        plt.figure(figsize=(10, 6))
+        plt.bar(infracoes_por_bioma['bioma'], infracoes_por_bioma['total_infracoes'], color='skyblue')
+        plt.xlabel('Bioma')
+        plt.ylabel('Número de Infrações')
+        plt.title('Número de Infrações por Bioma')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        
+        # Salvar gráfico em arquivo
+        chart_path = "infracoes_por_bioma.png"
+        plt.savefig(chart_path)
+        plt.close()
+
+        return {
+            "report_summary": {
+                "total_registros": len(df),
+                "infracoes_por_bioma": infracoes_por_bioma.to_dict(orient='records')
+            },
+            "chart_image_url": f"/{chart_path}" 
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao gerar relatório de insights: {str(e)}")
+
+
+@router.get("/stats/summary")
+async def get_bioma_stats():
+    """
+    Agregações e cálculos estatísticos simples.
+    """
+    try:
+        pipeline = [
+            {
+                "$group": {
+                    "_id": "$bioma",
+                    "total_infracoes": {"$sum": 1}
+                }
+            },
+            {
+                "$project": {
+                    "bioma": "$_id",
+                    "total_infracoes": 1,
+                    "_id": 0
+                }
+            }
+        ]
+        
+        stats = await bioma_collection.aggregate(pipeline).to_list(None)
+        
+        return {
+            "estatisticas_por_bioma": stats
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/", response_model=PaginatedBiomasResponse)
+async def listar_biomas(
+    bioma: Optional[str] = Query(None, description="Filtrar por nome do bioma"),
+    skip: int = Query(0, ge=0, description="Número de registros a pular"),
+    limit: int = Query(10, ge=1, le=200, description="Número de registros por página")
+):
+    """
+    Listar biomas com metadados de paginação e filtros.
+    """
+    try:
+        query = {}
+        if bioma:
+            query["bioma"] = {"$regex": bioma, "$options": "i"}
+
+        total_items = await bioma_collection.count_documents(query)
+        total_pages = math.ceil(total_items / limit)
+        current_page = (skip // limit) + 1
+
+        cursor = bioma_collection.find(query).skip(skip).limit(limit)
+        
+        biomas_list = [
+            BiomaOut(**{**doc, "_id": str(doc["_id"])}) 
+            async for doc in cursor
+        ]
+
+        return PaginatedBiomasResponse(
+            meta=PaginationMeta(
+                total_items=total_items,
+                total_pages=total_pages,
+                current_page=current_page,
+                limit=limit
+            ),
+            data=biomas_list
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar biomas: {str(e)}")
