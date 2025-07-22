@@ -4,9 +4,22 @@ from models.bioma import BiomaCreate, BiomaOut, PaginatedBiomaResponse
 from bson import ObjectId
 import pandas as pd
 import io
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Optional
+from pydantic import BaseModel
+from typing import List, Optional
+
+class PaginationMeta(BaseModel):
+    total_items: int
+    total_pages: int
+    current_page: int
+    limit: int
+
+class PaginatedBiomasResponse(BaseModel):
+    meta: PaginationMeta
+    data: List[BiomaOut]
 
 router = APIRouter(prefix="/biomas", tags=["Biomas"])
 
