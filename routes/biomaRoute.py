@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query
+from fastapi.responses import StreamingResponse
 from database import bioma_collection
 from models.bioma import BiomaCreate, BiomaOut, PaginatedBiomaResponse
 from bson import ObjectId
@@ -183,20 +184,15 @@ async def get_biomas_report():
         plt.xticks(rotation=45)
         plt.tight_layout()
         
-        # Salvar gráfico em arquivo
-        chart_path = "infracoes_por_bioma.png"
-        plt.savefig(chart_path)
-        plt.close()
+        img_bytes = io.BytesIO()
+        plt.savefig(img_bytes, format='png')
+        img_bytes.seek(0)
 
-        return {
-            "report_summary": {
-                "total_registros": len(df),
-                "infracoes_por_bioma": infracoes_por_bioma.to_dict(orient='records')
-            },
-            "chart_image_url": f"/{chart_path}" 
-        }
+        return StreamingResponse(img_bytes, media_type="image/png")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao gerar relatório de insights: {str(e)}")
+    finally:
+        plt.close()
 
 
 @router.get("/stats/summary")

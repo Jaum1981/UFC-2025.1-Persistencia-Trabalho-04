@@ -1,7 +1,9 @@
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
+from fastapi.responses import StreamingResponse
 from models.auto_infracao import AutoInfracaoCreate, AutoInfracaoOut, PaginatedAutoInfracaoResponse
 from database import auto_infracao_collection
+import matplotlib.pyplot as plt
 import pandas as pd
 import io
 from datetime import datetime, timedelta
@@ -140,3 +142,101 @@ async def get_auto_by_id(id: str):
         return AutoInfracaoOut(**{**auto, "_id": str(auto["_id"])})
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao buscar por id: {e}")
+    
+@router.get("/auto_infracao_report")
+async def get_auto_infracao_report():
+    try:
+        cursor = auto_infracao_collection.find({})
+        data = await cursor.to_list(length=None)
+
+        if not data:
+            raise HTTPException(status_code=404, detail="Nenhum dado encontrado para gerar o relatório.")
+
+        
+        df = pd.DataFrame(data)
+        if "efeito_saude_publica" not in df.columns:
+            raise HTTPException(status_code=400, detail="Coluna 'efeito_saude_publica' não encontrada.")
+
+        efeito_counts = df["efeito_saude_publica"].value_counts()
+
+        plt.figure(figsize=(8, 6))
+        efeito_counts.plot(kind="bar", color="skyblue")
+        plt.title("Distribuição dos Efeitos à Saúde Pública")
+        plt.xlabel("Efeito à Saúde Pública")
+        plt.ylabel("Quantidade")
+        plt.tight_layout()
+
+        img_bytes = io.BytesIO()
+        plt.savefig(img_bytes, format="png")
+        img_bytes.seek(0)
+
+        return StreamingResponse(img_bytes, media_type="image/png")
+    except HTTPException:
+        raise HTTPException(status_code=500, detail="Erro ao gerar relatório.")
+    finally:
+        plt.close()
+
+@router.get("/auto_infracao/nearby")
+async def get_nearby_auto_infracao(
+    longitude: float = Query(..., description="Longitude do ponto de referência"),
+    latitude: float = Query(..., description="Latitude do ponto de referência"),
+    radius: int = Query(10000, description="Raio de busca em metros")
+):
+    try:
+        # Converte metros para graus (aproximadamente)
+        # 1 grau ≈ 111,320 metros no equador
+        radius_degrees = radius / 111320
+        
+        query = {
+            "num_longitude": {
+                "$gte": longitude - radius_degrees,
+                "$lte": longitude + radius_degrees
+            },
+            "num_latitude": {
+                "$gte": latitude - radius_degrees,
+                "$lte": latitude + radius_degrees
+            }
+        }
+        
+        docs = await auto_infracao_collection.find(query).to_list(length=None)
+        if not docs:
+            raise HTTPException(404, "Nenhum auto de infração próximo encontrado dentro da distância especificada.")
+        
+        
+        def calculate_distance(lat1, lon1, lat2, lon2):
+            # Fórmula de Haversine para calcular distância entre coordenadas
+            R = 6371000  # Raio da Terra em metros
+            phi1 = math.radians(lat1)
+            phi2 = math.radians(lat2)
+            delta_phi = math.radians(lat2 - lat1)
+            delta_lambda = math.radians(lon2 - lon1)
+            
+            a = math.sin(delta_phi/2)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda/2)**2
+            c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+            
+            return R * c
+        
+        results = []
+        for doc in docs:
+            if doc.get("num_latitude") and doc.get("num_longitude"):
+                distance = calculate_distance(
+                    latitude, longitude,
+                    doc["num_latitude"], doc["num_longitude"]
+                )
+                if distance <= radius:
+                    doc["distance"] = distance
+                    doc["_id"] = str(doc["_id"])
+                    results.append(doc)
+        
+        if not results:
+            raise HTTPException(404, "Nenhum auto de infração próximo encontrado dentro da distância especificada.")
+        
+        results.sort(key=lambda x: x["distance"])
+        closest = results[0]
+        closest.pop("distance", None)  
+        
+        return AutoInfracaoOut(**closest)
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar infrações próximas: {e}")
