@@ -5,6 +5,7 @@ import pandas as pd
 import io, re
 
 from models.edificio_IBAMA import Edf_Pub_Civil_IBAMACreate, Edf_Pub_Civil_IBAMAOut, PaginatedEdf_Pub_Civil_IBAMAResponse
+from logs.logger import logger
 
 
 router = APIRouter(prefix="/edf", tags=["Edf Pub Civil IBAMA"])
@@ -19,12 +20,16 @@ def dms_to_decimal(dms_str: str) -> float:
 
 @router.post("/upload", response_model=list[Edf_Pub_Civil_IBAMAOut])
 async def upload_edf_csv(file: UploadFile = File(...)):
+    logger.info(f"Iniciando upload de arquivo CSV: {file.filename}")
+    
     df = pd.read_csv(
         io.BytesIO(await file.read()),
         dtype=str,
         keep_default_na=False,
         na_values=['']
     )
+    
+    logger.info(f"Arquivo CSV carregado com {len(df)} linhas")
 
     coluna_map = {
         "nome": "nome",
@@ -56,13 +61,17 @@ async def upload_edf_csv(file: UploadFile = File(...)):
             }
             docs.append(doc)
         except Exception as e:
-            print(f"Erro linha {i+1}: {e}")
+            logger.warning(f"Erro linha {i+1}: {e}")
             continue
 
     if not docs:
+        logger.error("Nenhum registro válido após tratamento do arquivo CSV")
         raise HTTPException(400, "Nenhum registro válido após tratamento.")
 
+    logger.info(f"Processando inserção de {len(docs)} documentos válidos")
     res = await edificio_IBAMA_collection.insert_many(docs)
+    
+    logger.info(f"Upload concluído com sucesso: {len(docs)} edificios inseridos")
     return [
         Edf_Pub_Civil_IBAMAOut(
             **{**doc, "_id": str(res.inserted_ids[idx])} 
@@ -79,6 +88,8 @@ async def nearby(
     long: float = Query(...),
     max_distance: int = Query(10000, description="Distância máxima em metros")
 ):
+    logger.info(f"Buscando edificio próximo - Lat: {lat}, Long: {long}, Distância máxima: {max_distance}m")
+    
     try:
         query = {
             "location": {
@@ -90,45 +101,64 @@ async def nearby(
         }
         docs = await edificio_IBAMA_collection.find(query).limit(1).to_list(1)
         if not docs:
+            logger.warning(f"Nenhum edificio encontrado próximo às coordenadas {lat}, {long} dentro de {max_distance}m")
             raise HTTPException(404, "Nenhuma unidade próxima encontrada dentro da distância especificada.")
+        
         doc = docs[0]
         # converte _id para string antes de criar o modelo
         doc["_id"] = str(doc["_id"])
+        
+        logger.info(f"Edificio encontrado: {doc.get('nome', 'N/A')} (ID: {doc['_id']})")
         return Edf_Pub_Civil_IBAMAOut(**doc)
     except HTTPException:
         raise
     except Exception as e:
+        logger.error(f"Erro na consulta geoespacial: {e}")
         raise HTTPException(500, f"Erro na consulta geoespacial: {e}")
     
 @router.get("/count_edificio")
 async def count_edificio():
+    logger.info("Contando total de edificios na coleção")
     try:
         count = await edificio_IBAMA_collection.count_documents({})
+        logger.info(f"Total de edificios encontrados: {count}")
         return {"count": count}
     except Exception as e:
+        logger.error(f"Erro ao contar documentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
     
 @router.get("/edificios", response_model=PaginatedEdf_Pub_Civil_IBAMAResponse)
 async def get_edificios(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
+    logger.info(f"Buscando edificios - Página: {page}, Tamanho: {page_size}")
     try:
         total = await edificio_IBAMA_collection.count_documents({})
         items = await edificio_IBAMA_collection.find().skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        
+        logger.info(f"Retornando {len(items)} edificios de um total de {total}")
         return PaginatedEdf_Pub_Civil_IBAMAResponse(total=total, page=page, size=page_size, items=items)
     except Exception as e:
+        logger.error(f"Erro ao buscar documentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
     
 @router.get("/edificio/{edificio_id}", response_model=Edf_Pub_Civil_IBAMAOut)
 async def get_edificio(edificio_id: str):
+    logger.info(f"Buscando edificio por ID: {edificio_id}")
     try:
         if not ObjectId.is_valid(edificio_id):
+            logger.warning(f"ID inválido fornecido: {edificio_id}")
             raise HTTPException(status_code=400, detail="ID inválido")
         
         edificio = await edificio_IBAMA_collection.find_one({"_id": ObjectId(edificio_id)})
         if not edificio:
+            logger.warning(f"Edificio não encontrado para ID: {edificio_id}")
             raise HTTPException(status_code=404, detail="Edifício não encontrado")
         
         edificio["_id"] = str(edificio["_id"])  # Converte _id para string
+        logger.info(f"Edificio encontrado: {edificio.get('nome', 'N/A')} (ID: {edificio_id})")
         return Edf_Pub_Civil_IBAMAOut(**edificio)
     
+    except HTTPException:
+        raise
     except Exception as e:
+        logger.error(f"Erro ao buscar edifício por ID {edificio_id}: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar edifício: {e}")

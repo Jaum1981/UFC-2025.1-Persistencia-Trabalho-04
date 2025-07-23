@@ -6,11 +6,13 @@ import pandas as pd
 import io
 from datetime import datetime
 import math
+from logs.logger import logger
 
 router = APIRouter(prefix="/enquadramento", tags=["Enquadramento"])
 
 @router.post("/upload", response_model=list[EnquadramentoOut])
 async def upload_enquadramento_csv(file: UploadFile = File(...)):
+    logger.info(f"Iniciando upload de arquivo CSV de enquadramentos: {file.filename}")
     try:
         df = pd.read_csv(
             io.BytesIO(await file.read()),
@@ -19,6 +21,8 @@ async def upload_enquadramento_csv(file: UploadFile = File(...)):
             keep_default_na=False,
             na_values=['']
         )
+        
+        logger.info(f"Arquivo CSV carregado com {len(df)} linhas")
 
         coluna_map = {
             "SEQ_AUTO_INFRACAO": "seq_auto_infracao",
@@ -33,6 +37,7 @@ async def upload_enquadramento_csv(file: UploadFile = File(...)):
         df = df[[col for col in coluna_map if col in df.columns]].rename(columns=coluna_map)
 
         documentos = []
+        erros_processamento = 0
         for i, row in df.iterrows():
             try:
                 doc_dict = row.to_dict()
@@ -68,45 +73,71 @@ async def upload_enquadramento_csv(file: UploadFile = File(...)):
                 documentos.append(enquadramento.dict())
 
             except Exception as e:
-                print(f"Erro na linha {i+1}: {e}")
+                erros_processamento += 1
+                logger.warning(f"Erro na linha {i+1}: {e}")
                 continue
 
         if not documentos:
+            logger.error(f"Nenhum registro válido encontrado. Total de erros: {erros_processamento}")
             raise HTTPException(400, "Nenhum registro válido encontrado.")
 
+        logger.info(f"Processando inserção de {len(documentos)} enquadramentos válidos")
         res = await enquadramento_collection.insert_many(documentos)
+        
+        logger.info(f"Upload concluído: {len(res.inserted_ids)} enquadramentos inseridos com sucesso")
         return [
             EnquadramentoOut(**{**doc, "_id": str(res.inserted_ids[idx])})
             for idx, doc in enumerate(documentos)
         ]
 
+    except HTTPException:
+        raise
     except Exception as e:
+        logger.error(f"Erro interno no upload de enquadramentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
 
 @router.get("/count_enquadramento")
 async def count_enquadramento():
+    logger.info("Contando total de enquadramentos na coleção")
     try:
         count = await enquadramento_collection.count_documents({})
+        logger.info(f"Total de enquadramentos encontrados: {count}")
         return {"count": count}
     except Exception as e:
+        logger.error(f"Erro ao contar enquadramentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
 
 @router.get("/enquadramentos", response_model=PaginatedEnquadramentoResponse)
 async def get_enquadramentos(page: int = 1, page_size: int = 10):
+    logger.info(f"Buscando enquadramentos - Página: {page}, Tamanho: {page_size}")
     try:
         total = await enquadramento_collection.count_documents({})
         items = await enquadramento_collection.find().skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        
+        logger.info(f"Retornando {len(items)} enquadramentos de um total de {total}")
         return PaginatedEnquadramentoResponse(total=total, page=page, size=page_size, items=items)
     except Exception as e:
+        logger.error(f"Erro ao buscar enquadramentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
 @router.get("/enquadramento/{enquadramento_id}", response_model=EnquadramentoOut)
 async def get_enquadramento(enquadramento_id: str):
+    logger.info(f"Buscando enquadramento por ID: {enquadramento_id}")
     try:
+        if not ObjectId.is_valid(enquadramento_id):
+            logger.warning(f"ID inválido fornecido: {enquadramento_id}")
+            raise HTTPException(status_code=400, detail="ID inválido")
+            
         doc = await enquadramento_collection.find_one({"_id": ObjectId(enquadramento_id)})
         if not doc:
+            logger.warning(f"Enquadramento não encontrado para ID: {enquadramento_id}")
             raise HTTPException(status_code=404, detail="Enquadramento não encontrado.")
+        
         doc["_id"] = str(doc["_id"])  # converte _id para string
+        logger.info(f"Enquadramento encontrado (ID: {enquadramento_id})")
         return EnquadramentoOut(**doc)
+    except HTTPException:
+        raise
     except Exception as e:
+        logger.error(f"Erro ao buscar enquadramento por ID {enquadramento_id}: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")
