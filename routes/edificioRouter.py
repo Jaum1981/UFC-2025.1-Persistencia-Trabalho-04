@@ -2,7 +2,8 @@ from bson import ObjectId
 from fastapi import APIRouter, HTTPException, UploadFile, File, Query
 from database import edificio_IBAMA_collection
 import pandas as pd
-import io, re
+import io
+import re
 
 from models.edificio_IBAMA import Edf_Pub_Civil_IBAMACreate, Edf_Pub_Civil_IBAMAOut, PaginatedEdf_Pub_Civil_IBAMAResponse
 from logs.logger import logger
@@ -79,7 +80,30 @@ async def upload_edf_csv(file: UploadFile = File(...)):
         for idx, doc in enumerate(docs)
     ]
 
-
+@router.get("/stats/edificios/municipio")
+async def get_edificio_stats_municipio():
+    """
+    Total de edifícios por município.
+    """
+    logger.info("Gerando estatísticas de edifícios por município")
+    try:
+        pipeline = [
+            {"$group": {
+                "_id": "$municipio",
+                "total_edificios": {"$sum": 1}
+            }},
+            {"$project": {
+                "municipio": "$_id",
+                "total_edificios": 1,
+                "_id": 0
+            }},
+            {"$sort": {"total_edificios": -1}}
+        ]
+        stats = await edificio_IBAMA_collection.aggregate(pipeline).to_list(None)
+        return {"estatisticas_por_municipio": stats}
+    except Exception as e:
+        logger.error(f"Erro ao gerar estatísticas de edifícios: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/nearby", response_model=Edf_Pub_Civil_IBAMAOut)
