@@ -43668,3 +43668,1611 @@ efeito_saude_publica
 2025-07-23 15:27:05,163 - INFO - Retornando 10 biomas (página 1 de 2483)
 2025-07-23 15:27:28,597 - INFO - Atualizados 785 infratores existentes
 2025-07-23 15:27:28,597 - INFO - Upload concluído: 9098 novos infratores inseridos, 785 atualizações, 0 erros
+2025-07-23 15:35:21,037 - INFO - CSV carregado com 12297 registros
+2025-07-23 15:35:21,038 - INFO - Colunas disponíveis: ['SEQ_AUTO_INFRACAO', 'DES_STATUS_FORMULARIO', 'DS_SIT_AUTO_AIE', 'SIT_CANCELADO', 'NUM_AUTO_INFRACAO', 'SER_AUTO_INFRACAO', 'CD_ORIGINAL_AUTO_INFRACAO', 'TIPO_AUTO', 'TIPO_MULTA', 'VAL_AUTO_INFRACAO', 'FUNDAMENTACAO_MULTA', 'PATRIMONIO_APURACAO', 'GRAVIDADE_INFRACAO', 'CD_NIVEL_GRAVIDADE', 'MOTIVACAO_CONDUTA', 'EFEITO_MEIO_AMBIENTE', 'EFEITO_SAUDE_PUBLICA', 'PASSIVEL_RECUPERACAO', 'UNID_ARRECADACAO', 'DES_AUTO_INFRACAO', 'DAT_HORA_AUTO_INFRACAO', 'FORMA_ENTREGA', 'DAT_CIENCIA_AUTUACAO', 'DT_FATO_INFRACIONAL', 'DT_INICIO_ATO_INEQUIVOCO', 'DT_FIM_ATO_INEQUIVOCO', 'COD_MUNICIPIO', 'MUNICIPIO', 'UF', 'NUM_PROCESSO', 'COD_INFRACAO', 'DES_INFRACAO', 'TIPO_INFRACAO', 'DES_RECEITA', 'NUM_PESSOA_INFRATOR', 'NOME_INFRATOR', 'CPF_CNPJ_INFRATOR', 'QT_AREA', 'INFRACAO_AREA', 'DES_OUTROS_TIPO_AREA', 'CLASSIFICACAO_AREA', 'NUM_LONGITUDE_AUTO', 'NUM_LATITUDE_AUTO', 'DS_WKT', 'DES_LOCAL_INFRACAO', 'UNIDADE_CONSERVACAO', 'DS_BIOMAS_ATINGIDOS', 'SEQ_NOTIFICACAO', 'SEQ_ACAO_FISCALIZATORIA', 'CD_ACAO_FISCALIZATORIA', 'UNID_CONTROLE', 'TIPO_ACAO', 'OPERACAO', 'DENUNCIA_SISLIV', 'SEQ_ORDEM_FISCALIZACAO', 'ORDEM_FISCALIZACAO', 'UNID_ORDENADORA', 'SEQ_SOLICITACAO_RECURSO', 'SOLICITACAO_RECURSO', 'OPERACAO_SOL_RECURSO', 'DT_LANCAMENTO', 'DT_ULT_ALTERACAO', 'TP_ULT_ALTERACAO', 'JUSTIFICATIVA_ALTERACAO', 'WKT_GE_AREA_AUTUADA', 'DT_ULT_ALTER_GEOM', 'TP_ORIGEM_GE_AREA_AUTUADA', 'ULTIMA_ATUALIZACAO_RELATORIO']
+2025-07-23 15:35:21,080 - INFO - Registros com datas válidas: 11627
+2025-07-23 15:35:21,080 - WARNING - Registros com datas inválidas ignorados: 670
+2025-07-23 15:35:21,130 - INFO - Infratores existentes na base: 0
+2025-07-23 15:35:21,131 - INFO - Iniciando processamento de 11627 registros válidos...
+2025-07-23 15:35:21,185 - INFO - Primeiro registro - Colunas da linha: ['SEQ_AUTO_INFRACAO', 'DES_STATUS_FORMULARIO', 'DS_SIT_AUTO_AIE', 'SIT_CANCELADO', 'NUM_AUTO_INFRACAO', 'SER_AUTO_INFRACAO', 'CD_ORIGINAL_AUTO_INFRACAO', 'TIPO_AUTO', 'TIPO_MULTA', 'VAL_AUTO_INFRACAO', 'FUNDAMENTACAO_MULTA', 'PATRIMONIO_APURACAO', 'GRAVIDADE_INFRACAO', 'CD_NIVEL_GRAVIDADE', 'MOTIVACAO_CONDUTA', 'EFEITO_MEIO_AMBIENTE', 'EFEITO_SAUDE_PUBLICA', 'PASSIVEL_RECUPERACAO', 'UNID_ARRECADACAO', 'DES_AUTO_INFRACAO', 'DAT_HORA_AUTO_INFRACAO', 'FORMA_ENTREGA', 'DAT_CIENCIA_AUTUACAO', 'DT_FATO_INFRACIONAL', 'DT_INICIO_ATO_INEQUIVOCO', 'DT_FIM_ATO_INEQUIVOCO', 'COD_MUNICIPIO', 'MUNICIPIO', 'UF', 'NUM_PROCESSO', 'COD_INFRACAO', 'DES_INFRACAO', 'TIPO_INFRACAO', 'DES_RECEITA', 'NUM_PESSOA_INFRATOR', 'NOME_INFRATOR', 'CPF_CNPJ_INFRATOR', 'QT_AREA', 'INFRACAO_AREA', 'DES_OUTROS_TIPO_AREA', 'CLASSIFICACAO_AREA', 'NUM_LONGITUDE_AUTO', 'NUM_LATITUDE_AUTO', 'DS_WKT', 'DES_LOCAL_INFRACAO', 'UNIDADE_CONSERVACAO', 'DS_BIOMAS_ATINGIDOS', 'SEQ_NOTIFICACAO', 'SEQ_ACAO_FISCALIZATORIA', 'CD_ACAO_FISCALIZATORIA', 'UNID_CONTROLE', 'TIPO_ACAO', 'OPERACAO', 'DENUNCIA_SISLIV', 'SEQ_ORDEM_FISCALIZACAO', 'ORDEM_FISCALIZACAO', 'UNID_ORDENADORA', 'SEQ_SOLICITACAO_RECURSO', 'SOLICITACAO_RECURSO', 'OPERACAO_SOL_RECURSO', 'DT_LANCAMENTO', 'DT_ULT_ALTERACAO', 'TP_ULT_ALTERACAO', 'JUSTIFICATIVA_ALTERACAO', 'WKT_GE_AREA_AUTUADA', 'DT_ULT_ALTER_GEOM', 'TP_ORIGEM_GE_AREA_AUTUADA', 'ULTIMA_ATUALIZACAO_RELATORIO', 'DT_INICIO_CONVERTED', 'DT_FIM_CONVERTED']
+2025-07-23 15:35:21,251 - INFO - Processados 1000 registros...
+2025-07-23 15:35:21,401 - INFO - Processados 2000 registros...
+2025-07-23 15:35:21,483 - INFO - Processados 3000 registros...
+2025-07-23 15:35:21,558 - INFO - Processados 4000 registros...
+2025-07-23 15:35:21,623 - INFO - Processados 5000 registros...
+2025-07-23 15:35:21,698 - INFO - Processados 6000 registros...
+2025-07-23 15:35:21,761 - INFO - Processados 7000 registros...
+2025-07-23 15:35:21,838 - INFO - Processados 8000 registros...
+2025-07-23 15:35:21,935 - INFO - Processados 9000 registros...
+2025-07-23 15:35:22,019 - INFO - Processados 10000 registros...
+2025-07-23 15:35:22,105 - INFO - Processados 11000 registros...
+2025-07-23 15:35:22,179 - INFO - Agrupamento concluído. 9098 infratores únicos identificados no CSV
+2025-07-23 15:35:22,198 - INFO - Processamento concluído. Novos infratores: 9098, Atualizações: 0, Erros: 0
+2025-07-23 15:35:40,561 - INFO - Inseridos 9098 novos infratores em lote
+2025-07-23 15:35:40,562 - INFO - Upload concluído: 9098 novos infratores inseridos, 0 atualizações, 0 erros
+2025-07-24 10:28:30,563 - INFO - Iniciando upload de arquivo CSV de autos de infração: auto_infracao_ano_2025.csv
+2025-07-24 10:28:31,075 - INFO - Arquivo CSV carregado com 7889 linhas
+2025-07-24 10:28:31,134 - WARNING - Erro na linha 63: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,138 - WARNING - Erro na linha 67: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,183 - WARNING - Erro na linha 238: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,184 - WARNING - Erro na linha 239: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,189 - WARNING - Erro na linha 260: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,189 - WARNING - Erro na linha 261: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,190 - WARNING - Erro na linha 262: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,191 - WARNING - Erro na linha 263: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,196 - WARNING - Erro na linha 300: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,209 - WARNING - Erro na linha 343: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,209 - WARNING - Erro na linha 344: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,259 - WARNING - Erro na linha 470: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,289 - WARNING - Erro na linha 661: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,290 - WARNING - Erro na linha 662: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,291 - WARNING - Erro na linha 671: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,325 - WARNING - Erro na linha 800: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,344 - WARNING - Erro na linha 897: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,346 - WARNING - Erro na linha 898: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,347 - WARNING - Erro na linha 899: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,350 - WARNING - Erro na linha 906: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,358 - WARNING - Erro na linha 914: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,367 - WARNING - Erro na linha 929: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,385 - WARNING - Erro na linha 965: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,393 - WARNING - Erro na linha 976: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,407 - WARNING - Erro na linha 1000: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,426 - WARNING - Erro na linha 1097: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,430 - WARNING - Erro na linha 1109: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,432 - WARNING - Erro na linha 1114: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,441 - WARNING - Erro na linha 1158: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,443 - WARNING - Erro na linha 1163: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,444 - WARNING - Erro na linha 1164: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,448 - WARNING - Erro na linha 1169: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,450 - WARNING - Erro na linha 1181: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,451 - WARNING - Erro na linha 1184: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,453 - WARNING - Erro na linha 1185: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,457 - WARNING - Erro na linha 1186: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,459 - WARNING - Erro na linha 1189: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,468 - WARNING - Erro na linha 1215: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,485 - WARNING - Erro na linha 1305: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,491 - WARNING - Erro na linha 1321: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,493 - WARNING - Erro na linha 1338: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,506 - WARNING - Erro na linha 1377: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,509 - WARNING - Erro na linha 1401: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,510 - WARNING - Erro na linha 1404: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,535 - WARNING - Erro na linha 1574: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,541 - WARNING - Erro na linha 1610: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,543 - WARNING - Erro na linha 1620: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,563 - WARNING - Erro na linha 1744: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,567 - WARNING - Erro na linha 1751: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,567 - WARNING - Erro na linha 1754: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,599 - WARNING - Erro na linha 1878: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,600 - WARNING - Erro na linha 1885: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,614 - WARNING - Erro na linha 1979: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,648 - WARNING - Erro na linha 2169: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,651 - WARNING - Erro na linha 2190: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,652 - WARNING - Erro na linha 2192: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,664 - WARNING - Erro na linha 2284: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,702 - WARNING - Erro na linha 2573: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,724 - WARNING - Erro na linha 2707: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,732 - WARNING - Erro na linha 2739: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,741 - WARNING - Erro na linha 2777: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,749 - WARNING - Erro na linha 2801: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,751 - WARNING - Erro na linha 2805: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,758 - WARNING - Erro na linha 2832: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,793 - WARNING - Erro na linha 2971: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,800 - WARNING - Erro na linha 3029: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,803 - WARNING - Erro na linha 3036: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,806 - WARNING - Erro na linha 3037: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,808 - WARNING - Erro na linha 3038: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,815 - WARNING - Erro na linha 3074: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,817 - WARNING - Erro na linha 3088: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,826 - WARNING - Erro na linha 3121: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,833 - WARNING - Erro na linha 3143: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,877 - WARNING - Erro na linha 3365: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,879 - WARNING - Erro na linha 3369: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,882 - WARNING - Erro na linha 3383: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,885 - WARNING - Erro na linha 3410: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,887 - WARNING - Erro na linha 3411: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,930 - WARNING - Erro na linha 3612: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,935 - WARNING - Erro na linha 3641: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,950 - WARNING - Erro na linha 3728: 1 validation error for AutoInfracaoCreate
+bioma
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,959 - WARNING - Erro na linha 3761: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,968 - WARNING - Erro na linha 3821: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,975 - WARNING - Erro na linha 3837: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:31,976 - WARNING - Erro na linha 3839: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,982 - WARNING - Erro na linha 3856: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,985 - WARNING - Erro na linha 3883: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:31,993 - WARNING - Erro na linha 3909: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,006 - WARNING - Erro na linha 3969: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,016 - WARNING - Erro na linha 4043: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,034 - WARNING - Erro na linha 4164: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,035 - WARNING - Erro na linha 4166: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,040 - WARNING - Erro na linha 4173: 1 validation error for AutoInfracaoCreate
+bioma
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,042 - WARNING - Erro na linha 4179: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,043 - WARNING - Erro na linha 4184: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,059 - WARNING - Erro na linha 4232: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,074 - WARNING - Erro na linha 4283: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,074 - WARNING - Erro na linha 4284: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,092 - WARNING - Erro na linha 4350: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,096 - WARNING - Erro na linha 4358: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,100 - WARNING - Erro na linha 4364: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,102 - WARNING - Erro na linha 4378: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,164 - WARNING - Erro na linha 4768: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,190 - WARNING - Erro na linha 4960: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,204 - WARNING - Erro na linha 5085: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,232 - WARNING - Erro na linha 5272: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,236 - WARNING - Erro na linha 5307: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,240 - WARNING - Erro na linha 5313: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,242 - WARNING - Erro na linha 5320: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,368 - WARNING - Erro na linha 5481: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,397 - WARNING - Erro na linha 5608: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,401 - WARNING - Erro na linha 5656: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,407 - WARNING - Erro na linha 5701: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,408 - WARNING - Erro na linha 5703: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,415 - WARNING - Erro na linha 5731: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,425 - WARNING - Erro na linha 5801: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,433 - WARNING - Erro na linha 5836: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,450 - WARNING - Erro na linha 5945: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,475 - WARNING - Erro na linha 6109: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,485 - WARNING - Erro na linha 6186: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,486 - WARNING - Erro na linha 6189: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,490 - WARNING - Erro na linha 6202: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,491 - WARNING - Erro na linha 6203: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,499 - WARNING - Erro na linha 6272: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,502 - WARNING - Erro na linha 6294: 2 validation errors for AutoInfracaoCreate
+motivacao_conduta
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+efeito_saude_publica
+  Input should be a valid string [type=string_type, input_value=nan, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-07-24 10:28:32,522 - WARNING - Erro na linha 6455: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,523 - WARNING - Erro na linha 6456: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,526 - WARNING - Erro na linha 6481: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,535 - WARNING - Erro na linha 6570: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,551 - WARNING - Erro na linha 6677: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,551 - WARNING - Erro na linha 6678: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,552 - WARNING - Erro na linha 6679: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,553 - WARNING - Erro na linha 6680: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,554 - WARNING - Erro na linha 6681: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,555 - WARNING - Erro na linha 6682: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,556 - WARNING - Erro na linha 6683: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,557 - WARNING - Erro na linha 6684: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,557 - WARNING - Erro na linha 6685: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,558 - WARNING - Erro na linha 6686: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,558 - WARNING - Erro na linha 6687: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,559 - WARNING - Erro na linha 6688: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,559 - WARNING - Erro na linha 6689: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,560 - WARNING - Erro na linha 6690: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,560 - WARNING - Erro na linha 6691: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,561 - WARNING - Erro na linha 6692: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,561 - WARNING - Erro na linha 6693: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,563 - WARNING - Erro na linha 6694: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,564 - WARNING - Erro na linha 6695: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,565 - WARNING - Erro na linha 6696: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,566 - WARNING - Erro na linha 6697: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,566 - WARNING - Erro na linha 6698: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,567 - WARNING - Erro na linha 6699: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,567 - WARNING - Erro na linha 6700: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,568 - WARNING - Erro na linha 6701: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,568 - WARNING - Erro na linha 6702: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,569 - WARNING - Erro na linha 6703: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,571 - WARNING - Erro na linha 6704: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,573 - WARNING - Erro na linha 6705: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,574 - WARNING - Erro na linha 6706: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,574 - WARNING - Erro na linha 6707: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,575 - WARNING - Erro na linha 6708: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,575 - WARNING - Erro na linha 6709: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,575 - WARNING - Erro na linha 6710: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,576 - WARNING - Erro na linha 6711: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,576 - WARNING - Erro na linha 6712: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,576 - WARNING - Erro na linha 6713: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,577 - WARNING - Erro na linha 6714: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,577 - WARNING - Erro na linha 6715: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,579 - WARNING - Erro na linha 6716: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,581 - WARNING - Erro na linha 6717: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,583 - WARNING - Erro na linha 6718: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,584 - WARNING - Erro na linha 6719: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,584 - WARNING - Erro na linha 6720: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,585 - WARNING - Erro na linha 6721: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,585 - WARNING - Erro na linha 6722: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,586 - WARNING - Erro na linha 6723: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,587 - WARNING - Erro na linha 6724: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,589 - WARNING - Erro na linha 6725: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,590 - WARNING - Erro na linha 6726: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,591 - WARNING - Erro na linha 6727: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,591 - WARNING - Erro na linha 6728: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,592 - WARNING - Erro na linha 6729: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,592 - WARNING - Erro na linha 6730: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,592 - WARNING - Erro na linha 6731: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,593 - WARNING - Erro na linha 6732: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,593 - WARNING - Erro na linha 6733: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,594 - WARNING - Erro na linha 6734: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,597 - WARNING - Erro na linha 6735: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,599 - WARNING - Erro na linha 6736: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,599 - WARNING - Erro na linha 6737: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,600 - WARNING - Erro na linha 6738: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,600 - WARNING - Erro na linha 6739: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,601 - WARNING - Erro na linha 6740: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,601 - WARNING - Erro na linha 6741: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,602 - WARNING - Erro na linha 6742: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,604 - WARNING - Erro na linha 6743: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,606 - WARNING - Erro na linha 6744: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,607 - WARNING - Erro na linha 6745: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,608 - WARNING - Erro na linha 6746: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,608 - WARNING - Erro na linha 6747: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,608 - WARNING - Erro na linha 6748: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,609 - WARNING - Erro na linha 6749: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,609 - WARNING - Erro na linha 6750: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,610 - WARNING - Erro na linha 6751: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,610 - WARNING - Erro na linha 6752: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,611 - WARNING - Erro na linha 6753: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,612 - WARNING - Erro na linha 6754: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,614 - WARNING - Erro na linha 6755: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,615 - WARNING - Erro na linha 6756: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,616 - WARNING - Erro na linha 6757: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,617 - WARNING - Erro na linha 6758: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,617 - WARNING - Erro na linha 6759: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,617 - WARNING - Erro na linha 6760: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,618 - WARNING - Erro na linha 6761: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,618 - WARNING - Erro na linha 6762: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,618 - WARNING - Erro na linha 6763: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,619 - WARNING - Erro na linha 6764: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,620 - WARNING - Erro na linha 6765: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,623 - WARNING - Erro na linha 6766: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,624 - WARNING - Erro na linha 6767: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,624 - WARNING - Erro na linha 6768: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,625 - WARNING - Erro na linha 6769: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,625 - WARNING - Erro na linha 6770: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,625 - WARNING - Erro na linha 6771: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,626 - WARNING - Erro na linha 6772: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,626 - WARNING - Erro na linha 6773: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,627 - WARNING - Erro na linha 6774: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,627 - WARNING - Erro na linha 6775: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,630 - WARNING - Erro na linha 6776: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,631 - WARNING - Erro na linha 6777: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,632 - WARNING - Erro na linha 6778: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,633 - WARNING - Erro na linha 6779: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,633 - WARNING - Erro na linha 6780: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,634 - WARNING - Erro na linha 6781: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,634 - WARNING - Erro na linha 6782: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,634 - WARNING - Erro na linha 6783: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,635 - WARNING - Erro na linha 6784: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,635 - WARNING - Erro na linha 6785: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,636 - WARNING - Erro na linha 6786: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,638 - WARNING - Erro na linha 6787: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,639 - WARNING - Erro na linha 6788: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,640 - WARNING - Erro na linha 6789: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,641 - WARNING - Erro na linha 6790: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,641 - WARNING - Erro na linha 6791: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,642 - WARNING - Erro na linha 6792: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,642 - WARNING - Erro na linha 6793: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,642 - WARNING - Erro na linha 6794: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,643 - WARNING - Erro na linha 6795: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,643 - WARNING - Erro na linha 6796: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,643 - WARNING - Erro na linha 6797: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,645 - WARNING - Erro na linha 6798: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,648 - WARNING - Erro na linha 6799: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,649 - WARNING - Erro na linha 6800: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,649 - WARNING - Erro na linha 6801: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,650 - WARNING - Erro na linha 6802: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,650 - WARNING - Erro na linha 6803: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,650 - WARNING - Erro na linha 6804: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,651 - WARNING - Erro na linha 6805: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,651 - WARNING - Erro na linha 6806: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,652 - WARNING - Erro na linha 6807: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,654 - WARNING - Erro na linha 6808: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,656 - WARNING - Erro na linha 6809: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,657 - WARNING - Erro na linha 6810: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,657 - WARNING - Erro na linha 6811: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,658 - WARNING - Erro na linha 6812: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,658 - WARNING - Erro na linha 6813: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,659 - WARNING - Erro na linha 6814: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,659 - WARNING - Erro na linha 6815: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,659 - WARNING - Erro na linha 6816: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,660 - WARNING - Erro na linha 6817: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,660 - WARNING - Erro na linha 6818: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,661 - WARNING - Erro na linha 6819: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,662 - WARNING - Erro na linha 6820: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,665 - WARNING - Erro na linha 6821: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,666 - WARNING - Erro na linha 6822: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,666 - WARNING - Erro na linha 6823: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,666 - WARNING - Erro na linha 6824: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,667 - WARNING - Erro na linha 6825: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,667 - WARNING - Erro na linha 6826: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,667 - WARNING - Erro na linha 6827: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,668 - WARNING - Erro na linha 6828: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,668 - WARNING - Erro na linha 6829: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,668 - WARNING - Erro na linha 6830: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,669 - WARNING - Erro na linha 6831: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,671 - WARNING - Erro na linha 6832: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,673 - WARNING - Erro na linha 6833: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,674 - WARNING - Erro na linha 6834: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,674 - WARNING - Erro na linha 6835: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,674 - WARNING - Erro na linha 6836: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,675 - WARNING - Erro na linha 6837: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,675 - WARNING - Erro na linha 6838: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,676 - WARNING - Erro na linha 6839: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,676 - WARNING - Erro na linha 6840: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,676 - WARNING - Erro na linha 6841: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,677 - WARNING - Erro na linha 6842: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,680 - WARNING - Erro na linha 6843: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,682 - WARNING - Erro na linha 6844: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,683 - WARNING - Erro na linha 6845: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,683 - WARNING - Erro na linha 6846: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,684 - WARNING - Erro na linha 6847: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,684 - WARNING - Erro na linha 6848: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,685 - WARNING - Erro na linha 6849: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,686 - WARNING - Erro na linha 6850: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,687 - WARNING - Erro na linha 6851: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,690 - WARNING - Erro na linha 6852: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,691 - WARNING - Erro na linha 6853: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,691 - WARNING - Erro na linha 6854: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,691 - WARNING - Erro na linha 6855: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,692 - WARNING - Erro na linha 6856: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,692 - WARNING - Erro na linha 6857: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,692 - WARNING - Erro na linha 6858: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,693 - WARNING - Erro na linha 6859: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,693 - WARNING - Erro na linha 6860: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,693 - WARNING - Erro na linha 6861: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,694 - WARNING - Erro na linha 6862: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,697 - WARNING - Erro na linha 6863: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,698 - WARNING - Erro na linha 6864: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,699 - WARNING - Erro na linha 6865: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,699 - WARNING - Erro na linha 6866: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,700 - WARNING - Erro na linha 6867: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,700 - WARNING - Erro na linha 6868: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,700 - WARNING - Erro na linha 6869: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,701 - WARNING - Erro na linha 6870: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,701 - WARNING - Erro na linha 6871: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,701 - WARNING - Erro na linha 6872: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,701 - WARNING - Erro na linha 6873: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,702 - WARNING - Erro na linha 6874: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,705 - WARNING - Erro na linha 6875: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,707 - WARNING - Erro na linha 6876: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,708 - WARNING - Erro na linha 6877: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,708 - WARNING - Erro na linha 6878: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,708 - WARNING - Erro na linha 6879: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,709 - WARNING - Erro na linha 6880: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,709 - WARNING - Erro na linha 6881: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,709 - WARNING - Erro na linha 6882: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,710 - WARNING - Erro na linha 6883: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,710 - WARNING - Erro na linha 6884: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,711 - WARNING - Erro na linha 6885: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,713 - WARNING - Erro na linha 6886: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,715 - WARNING - Erro na linha 6887: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,716 - WARNING - Erro na linha 6888: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,716 - WARNING - Erro na linha 6889: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,716 - WARNING - Erro na linha 6890: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,717 - WARNING - Erro na linha 6891: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,717 - WARNING - Erro na linha 6892: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,717 - WARNING - Erro na linha 6893: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,718 - WARNING - Erro na linha 6894: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,718 - WARNING - Erro na linha 6895: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,719 - WARNING - Erro na linha 6896: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,720 - WARNING - Erro na linha 6897: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,724 - WARNING - Erro na linha 6898: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,724 - WARNING - Erro na linha 6899: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,725 - WARNING - Erro na linha 6900: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,725 - WARNING - Erro na linha 6901: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,725 - WARNING - Erro na linha 6902: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,726 - WARNING - Erro na linha 6903: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,726 - WARNING - Erro na linha 6904: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,726 - WARNING - Erro na linha 6905: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,727 - WARNING - Erro na linha 6906: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,730 - WARNING - Erro na linha 6907: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,732 - WARNING - Erro na linha 6908: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,732 - WARNING - Erro na linha 6909: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,733 - WARNING - Erro na linha 6910: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,733 - WARNING - Erro na linha 6911: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,734 - WARNING - Erro na linha 6912: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,734 - WARNING - Erro na linha 6913: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,735 - WARNING - Erro na linha 6914: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,735 - WARNING - Erro na linha 6915: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,737 - WARNING - Erro na linha 6916: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,740 - WARNING - Erro na linha 6917: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,741 - WARNING - Erro na linha 6918: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,741 - WARNING - Erro na linha 6919: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,742 - WARNING - Erro na linha 6920: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,742 - WARNING - Erro na linha 6921: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,742 - WARNING - Erro na linha 6922: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,743 - WARNING - Erro na linha 6923: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,743 - WARNING - Erro na linha 6924: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,748 - WARNING - Erro na linha 6925: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,749 - WARNING - Erro na linha 6926: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,750 - WARNING - Erro na linha 6927: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,750 - WARNING - Erro na linha 6928: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,751 - WARNING - Erro na linha 6929: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,751 - WARNING - Erro na linha 6930: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,752 - WARNING - Erro na linha 6931: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,756 - WARNING - Erro na linha 6932: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,759 - WARNING - Erro na linha 6933: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,761 - WARNING - Erro na linha 6934: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,764 - WARNING - Erro na linha 6935: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,767 - WARNING - Erro na linha 6936: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,772 - WARNING - Erro na linha 6937: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,773 - WARNING - Erro na linha 6938: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,774 - WARNING - Erro na linha 6939: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,775 - WARNING - Erro na linha 6940: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,775 - WARNING - Erro na linha 6941: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,776 - WARNING - Erro na linha 6942: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,776 - WARNING - Erro na linha 6943: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,777 - WARNING - Erro na linha 6944: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,779 - WARNING - Erro na linha 6945: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,781 - WARNING - Erro na linha 6946: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,783 - WARNING - Erro na linha 6947: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,784 - WARNING - Erro na linha 6948: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,784 - WARNING - Erro na linha 6949: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,785 - WARNING - Erro na linha 6950: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,788 - WARNING - Erro na linha 6951: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,790 - WARNING - Erro na linha 6952: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,792 - WARNING - Erro na linha 6953: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,792 - WARNING - Erro na linha 6954: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,793 - WARNING - Erro na linha 6955: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,797 - WARNING - Erro na linha 6956: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,798 - WARNING - Erro na linha 6957: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,800 - WARNING - Erro na linha 6958: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,801 - WARNING - Erro na linha 6959: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,802 - WARNING - Erro na linha 6960: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,806 - WARNING - Erro na linha 6961: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,808 - WARNING - Erro na linha 6962: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,808 - WARNING - Erro na linha 6963: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,809 - WARNING - Erro na linha 6964: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,809 - WARNING - Erro na linha 6965: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,810 - WARNING - Erro na linha 6966: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,811 - WARNING - Erro na linha 6967: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,814 - WARNING - Erro na linha 6968: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,815 - WARNING - Erro na linha 6969: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,816 - WARNING - Erro na linha 6970: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,817 - WARNING - Erro na linha 6971: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,817 - WARNING - Erro na linha 6972: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,818 - WARNING - Erro na linha 6973: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,818 - WARNING - Erro na linha 6974: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,819 - WARNING - Erro na linha 6975: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,823 - WARNING - Erro na linha 6976: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,824 - WARNING - Erro na linha 6977: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,824 - WARNING - Erro na linha 6978: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,825 - WARNING - Erro na linha 6979: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,825 - WARNING - Erro na linha 6980: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,825 - WARNING - Erro na linha 6981: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,826 - WARNING - Erro na linha 6982: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,826 - WARNING - Erro na linha 6983: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,826 - WARNING - Erro na linha 6984: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,827 - WARNING - Erro na linha 6985: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,830 - WARNING - Erro na linha 6986: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,832 - WARNING - Erro na linha 6987: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,833 - WARNING - Erro na linha 6988: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,833 - WARNING - Erro na linha 6989: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,833 - WARNING - Erro na linha 6990: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,834 - WARNING - Erro na linha 6991: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,834 - WARNING - Erro na linha 6992: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,836 - WARNING - Erro na linha 6993: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,854 - WARNING - Erro na linha 6994: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,858 - WARNING - Erro na linha 6995: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,890 - WARNING - Erro na linha 6996: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,905 - WARNING - Erro na linha 6997: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,923 - WARNING - Erro na linha 6998: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,924 - WARNING - Erro na linha 6999: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,926 - WARNING - Erro na linha 7000: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,927 - WARNING - Erro na linha 7001: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,930 - WARNING - Erro na linha 7002: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,931 - WARNING - Erro na linha 7003: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,931 - WARNING - Erro na linha 7004: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,932 - WARNING - Erro na linha 7005: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,933 - WARNING - Erro na linha 7006: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,933 - WARNING - Erro na linha 7007: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,934 - WARNING - Erro na linha 7008: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,935 - WARNING - Erro na linha 7009: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,935 - WARNING - Erro na linha 7010: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,937 - WARNING - Erro na linha 7011: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,938 - WARNING - Erro na linha 7012: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,959 - WARNING - Erro na linha 7013: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,960 - WARNING - Erro na linha 7014: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,964 - WARNING - Erro na linha 7015: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,965 - WARNING - Erro na linha 7016: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,966 - WARNING - Erro na linha 7017: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,966 - WARNING - Erro na linha 7018: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,967 - WARNING - Erro na linha 7019: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,967 - WARNING - Erro na linha 7020: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,968 - WARNING - Erro na linha 7021: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,968 - WARNING - Erro na linha 7022: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,973 - WARNING - Erro na linha 7023: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,974 - WARNING - Erro na linha 7024: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,975 - WARNING - Erro na linha 7025: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,975 - WARNING - Erro na linha 7026: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,976 - WARNING - Erro na linha 7027: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,976 - WARNING - Erro na linha 7028: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,979 - WARNING - Erro na linha 7029: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,982 - WARNING - Erro na linha 7030: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,983 - WARNING - Erro na linha 7031: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,983 - WARNING - Erro na linha 7032: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,984 - WARNING - Erro na linha 7033: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,984 - WARNING - Erro na linha 7034: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,990 - WARNING - Erro na linha 7035: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,991 - WARNING - Erro na linha 7036: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,992 - WARNING - Erro na linha 7037: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,993 - WARNING - Erro na linha 7038: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,996 - WARNING - Erro na linha 7039: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,999 - WARNING - Erro na linha 7040: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:32,999 - WARNING - Erro na linha 7041: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,000 - WARNING - Erro na linha 7042: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,001 - WARNING - Erro na linha 7043: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,001 - WARNING - Erro na linha 7044: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,007 - WARNING - Erro na linha 7045: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,008 - WARNING - Erro na linha 7046: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,008 - WARNING - Erro na linha 7047: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,009 - WARNING - Erro na linha 7048: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,009 - WARNING - Erro na linha 7049: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,010 - WARNING - Erro na linha 7050: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,015 - WARNING - Erro na linha 7051: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,016 - WARNING - Erro na linha 7052: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,017 - WARNING - Erro na linha 7053: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,017 - WARNING - Erro na linha 7054: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,018 - WARNING - Erro na linha 7055: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,022 - WARNING - Erro na linha 7056: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,023 - WARNING - Erro na linha 7057: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,024 - WARNING - Erro na linha 7058: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,025 - WARNING - Erro na linha 7059: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,025 - WARNING - Erro na linha 7060: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,026 - WARNING - Erro na linha 7061: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,026 - WARNING - Erro na linha 7062: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,029 - WARNING - Erro na linha 7063: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,032 - WARNING - Erro na linha 7064: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,033 - WARNING - Erro na linha 7065: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,034 - WARNING - Erro na linha 7066: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,034 - WARNING - Erro na linha 7067: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,035 - WARNING - Erro na linha 7068: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,040 - WARNING - Erro na linha 7069: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,040 - WARNING - Erro na linha 7070: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,041 - WARNING - Erro na linha 7071: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,042 - WARNING - Erro na linha 7072: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,042 - WARNING - Erro na linha 7073: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,043 - WARNING - Erro na linha 7074: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,043 - WARNING - Erro na linha 7075: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,047 - WARNING - Erro na linha 7076: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,049 - WARNING - Erro na linha 7077: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,049 - WARNING - Erro na linha 7078: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,050 - WARNING - Erro na linha 7079: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,050 - WARNING - Erro na linha 7080: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,051 - WARNING - Erro na linha 7081: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,051 - WARNING - Erro na linha 7082: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,055 - WARNING - Erro na linha 7083: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,057 - WARNING - Erro na linha 7084: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,057 - WARNING - Erro na linha 7085: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,058 - WARNING - Erro na linha 7086: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,058 - WARNING - Erro na linha 7087: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,058 - WARNING - Erro na linha 7088: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,059 - WARNING - Erro na linha 7089: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,059 - WARNING - Erro na linha 7090: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,060 - WARNING - Erro na linha 7091: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,060 - WARNING - Erro na linha 7092: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,061 - WARNING - Erro na linha 7093: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,065 - WARNING - Erro na linha 7094: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,066 - WARNING - Erro na linha 7095: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,066 - WARNING - Erro na linha 7096: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,067 - WARNING - Erro na linha 7097: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,067 - WARNING - Erro na linha 7098: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,068 - WARNING - Erro na linha 7099: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,068 - WARNING - Erro na linha 7100: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,069 - WARNING - Erro na linha 7101: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,071 - WARNING - Erro na linha 7102: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,072 - WARNING - Erro na linha 7103: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,073 - WARNING - Erro na linha 7104: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,074 - WARNING - Erro na linha 7105: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,074 - WARNING - Erro na linha 7106: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,075 - WARNING - Erro na linha 7107: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,075 - WARNING - Erro na linha 7108: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,076 - WARNING - Erro na linha 7109: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,076 - WARNING - Erro na linha 7110: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,077 - WARNING - Erro na linha 7111: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,080 - WARNING - Erro na linha 7112: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,081 - WARNING - Erro na linha 7113: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,082 - WARNING - Erro na linha 7114: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,082 - WARNING - Erro na linha 7115: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,083 - WARNING - Erro na linha 7116: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,083 - WARNING - Erro na linha 7117: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,084 - WARNING - Erro na linha 7118: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,084 - WARNING - Erro na linha 7119: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,084 - WARNING - Erro na linha 7120: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,085 - WARNING - Erro na linha 7121: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,085 - WARNING - Erro na linha 7122: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,086 - WARNING - Erro na linha 7123: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,089 - WARNING - Erro na linha 7124: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,090 - WARNING - Erro na linha 7125: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,091 - WARNING - Erro na linha 7126: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,091 - WARNING - Erro na linha 7127: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,091 - WARNING - Erro na linha 7128: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,092 - WARNING - Erro na linha 7129: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,092 - WARNING - Erro na linha 7130: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,094 - WARNING - Erro na linha 7131: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,097 - WARNING - Erro na linha 7132: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,098 - WARNING - Erro na linha 7133: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,099 - WARNING - Erro na linha 7134: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,100 - WARNING - Erro na linha 7135: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,100 - WARNING - Erro na linha 7136: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,100 - WARNING - Erro na linha 7137: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,101 - WARNING - Erro na linha 7138: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,101 - WARNING - Erro na linha 7139: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,102 - WARNING - Erro na linha 7140: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,106 - WARNING - Erro na linha 7141: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,107 - WARNING - Erro na linha 7142: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,107 - WARNING - Erro na linha 7143: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,108 - WARNING - Erro na linha 7144: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,108 - WARNING - Erro na linha 7145: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,109 - WARNING - Erro na linha 7146: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,109 - WARNING - Erro na linha 7147: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,110 - WARNING - Erro na linha 7148: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,110 - WARNING - Erro na linha 7149: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,111 - WARNING - Erro na linha 7150: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,114 - WARNING - Erro na linha 7151: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,115 - WARNING - Erro na linha 7152: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,116 - WARNING - Erro na linha 7153: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,116 - WARNING - Erro na linha 7154: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,117 - WARNING - Erro na linha 7155: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,117 - WARNING - Erro na linha 7156: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,117 - WARNING - Erro na linha 7157: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,118 - WARNING - Erro na linha 7158: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,119 - WARNING - Erro na linha 7159: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,120 - WARNING - Erro na linha 7160: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,121 - WARNING - Erro na linha 7161: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,123 - WARNING - Erro na linha 7162: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,123 - WARNING - Erro na linha 7163: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,124 - WARNING - Erro na linha 7164: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,125 - WARNING - Erro na linha 7165: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,125 - WARNING - Erro na linha 7166: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,126 - WARNING - Erro na linha 7167: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,126 - WARNING - Erro na linha 7168: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,127 - WARNING - Erro na linha 7169: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,130 - WARNING - Erro na linha 7170: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,131 - WARNING - Erro na linha 7171: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,132 - WARNING - Erro na linha 7172: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,132 - WARNING - Erro na linha 7173: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,133 - WARNING - Erro na linha 7174: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,133 - WARNING - Erro na linha 7175: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,133 - WARNING - Erro na linha 7176: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,133 - WARNING - Erro na linha 7177: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,134 - WARNING - Erro na linha 7178: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,134 - WARNING - Erro na linha 7179: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,135 - WARNING - Erro na linha 7180: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,136 - WARNING - Erro na linha 7181: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,140 - WARNING - Erro na linha 7182: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,141 - WARNING - Erro na linha 7183: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,141 - WARNING - Erro na linha 7184: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,141 - WARNING - Erro na linha 7185: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,142 - WARNING - Erro na linha 7186: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,142 - WARNING - Erro na linha 7187: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,143 - WARNING - Erro na linha 7188: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,143 - WARNING - Erro na linha 7189: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,146 - WARNING - Erro na linha 7190: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,148 - WARNING - Erro na linha 7191: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,149 - WARNING - Erro na linha 7192: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,149 - WARNING - Erro na linha 7193: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,150 - WARNING - Erro na linha 7194: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,150 - WARNING - Erro na linha 7195: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,150 - WARNING - Erro na linha 7196: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,151 - WARNING - Erro na linha 7197: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,151 - WARNING - Erro na linha 7198: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,152 - WARNING - Erro na linha 7199: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,156 - WARNING - Erro na linha 7200: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,157 - WARNING - Erro na linha 7201: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,158 - WARNING - Erro na linha 7202: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,159 - WARNING - Erro na linha 7203: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,159 - WARNING - Erro na linha 7204: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,160 - WARNING - Erro na linha 7205: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,161 - WARNING - Erro na linha 7206: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,164 - WARNING - Erro na linha 7207: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,165 - WARNING - Erro na linha 7208: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,166 - WARNING - Erro na linha 7209: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,166 - WARNING - Erro na linha 7210: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,167 - WARNING - Erro na linha 7211: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,167 - WARNING - Erro na linha 7212: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,168 - WARNING - Erro na linha 7213: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,168 - WARNING - Erro na linha 7214: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,172 - WARNING - Erro na linha 7215: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,173 - WARNING - Erro na linha 7216: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,174 - WARNING - Erro na linha 7217: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,175 - WARNING - Erro na linha 7218: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,175 - WARNING - Erro na linha 7219: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,176 - WARNING - Erro na linha 7220: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,176 - WARNING - Erro na linha 7221: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,176 - WARNING - Erro na linha 7222: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,178 - WARNING - Erro na linha 7223: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,181 - WARNING - Erro na linha 7224: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,183 - WARNING - Erro na linha 7225: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,184 - WARNING - Erro na linha 7226: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,184 - WARNING - Erro na linha 7227: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,185 - WARNING - Erro na linha 7228: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,189 - WARNING - Erro na linha 7229: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,190 - WARNING - Erro na linha 7230: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,191 - WARNING - Erro na linha 7231: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,191 - WARNING - Erro na linha 7232: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,192 - WARNING - Erro na linha 7233: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,192 - WARNING - Erro na linha 7234: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,192 - WARNING - Erro na linha 7235: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,193 - WARNING - Erro na linha 7236: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,194 - WARNING - Erro na linha 7237: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,198 - WARNING - Erro na linha 7238: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,198 - WARNING - Erro na linha 7239: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,199 - WARNING - Erro na linha 7240: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,199 - WARNING - Erro na linha 7241: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,200 - WARNING - Erro na linha 7242: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,200 - WARNING - Erro na linha 7243: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,200 - WARNING - Erro na linha 7244: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,200 - WARNING - Erro na linha 7245: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,201 - WARNING - Erro na linha 7246: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,201 - WARNING - Erro na linha 7247: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,206 - WARNING - Erro na linha 7248: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,206 - WARNING - Erro na linha 7249: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,207 - WARNING - Erro na linha 7250: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,207 - WARNING - Erro na linha 7251: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,208 - WARNING - Erro na linha 7252: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,208 - WARNING - Erro na linha 7253: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,208 - WARNING - Erro na linha 7254: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,209 - WARNING - Erro na linha 7255: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,209 - WARNING - Erro na linha 7256: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,210 - WARNING - Erro na linha 7257: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,211 - WARNING - Erro na linha 7258: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,214 - WARNING - Erro na linha 7259: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,215 - WARNING - Erro na linha 7260: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,216 - WARNING - Erro na linha 7261: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,216 - WARNING - Erro na linha 7262: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,217 - WARNING - Erro na linha 7263: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,217 - WARNING - Erro na linha 7264: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,218 - WARNING - Erro na linha 7265: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,218 - WARNING - Erro na linha 7266: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,221 - WARNING - Erro na linha 7267: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,223 - WARNING - Erro na linha 7268: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,224 - WARNING - Erro na linha 7269: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,225 - WARNING - Erro na linha 7270: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,225 - WARNING - Erro na linha 7271: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,226 - WARNING - Erro na linha 7272: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,226 - WARNING - Erro na linha 7273: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,226 - WARNING - Erro na linha 7274: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,227 - WARNING - Erro na linha 7275: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,231 - WARNING - Erro na linha 7276: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,232 - WARNING - Erro na linha 7277: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,233 - WARNING - Erro na linha 7278: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,233 - WARNING - Erro na linha 7279: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,234 - WARNING - Erro na linha 7280: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,234 - WARNING - Erro na linha 7281: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,234 - WARNING - Erro na linha 7282: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,235 - WARNING - Erro na linha 7283: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,239 - WARNING - Erro na linha 7284: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,240 - WARNING - Erro na linha 7285: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,240 - WARNING - Erro na linha 7286: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,241 - WARNING - Erro na linha 7287: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,241 - WARNING - Erro na linha 7288: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,242 - WARNING - Erro na linha 7289: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,242 - WARNING - Erro na linha 7290: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,243 - WARNING - Erro na linha 7291: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,243 - WARNING - Erro na linha 7292: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,246 - WARNING - Erro na linha 7293: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,248 - WARNING - Erro na linha 7294: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,249 - WARNING - Erro na linha 7295: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,249 - WARNING - Erro na linha 7296: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,250 - WARNING - Erro na linha 7297: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,250 - WARNING - Erro na linha 7298: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,251 - WARNING - Erro na linha 7299: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,251 - WARNING - Erro na linha 7300: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,251 - WARNING - Erro na linha 7301: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,252 - WARNING - Erro na linha 7302: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,256 - WARNING - Erro na linha 7303: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,257 - WARNING - Erro na linha 7304: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,257 - WARNING - Erro na linha 7305: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,258 - WARNING - Erro na linha 7306: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,258 - WARNING - Erro na linha 7307: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,259 - WARNING - Erro na linha 7308: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,259 - WARNING - Erro na linha 7309: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,259 - WARNING - Erro na linha 7310: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,260 - WARNING - Erro na linha 7311: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,261 - WARNING - Erro na linha 7312: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,265 - WARNING - Erro na linha 7313: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,265 - WARNING - Erro na linha 7314: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,266 - WARNING - Erro na linha 7315: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,266 - WARNING - Erro na linha 7316: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,267 - WARNING - Erro na linha 7317: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,267 - WARNING - Erro na linha 7318: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,267 - WARNING - Erro na linha 7319: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,268 - WARNING - Erro na linha 7320: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,268 - WARNING - Erro na linha 7321: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,270 - WARNING - Erro na linha 7322: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,273 - WARNING - Erro na linha 7323: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,274 - WARNING - Erro na linha 7324: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,274 - WARNING - Erro na linha 7325: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,275 - WARNING - Erro na linha 7326: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,275 - WARNING - Erro na linha 7327: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,275 - WARNING - Erro na linha 7328: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,276 - WARNING - Erro na linha 7329: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,276 - WARNING - Erro na linha 7330: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,277 - WARNING - Erro na linha 7331: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,281 - WARNING - Erro na linha 7332: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,282 - WARNING - Erro na linha 7333: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,282 - WARNING - Erro na linha 7334: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,283 - WARNING - Erro na linha 7335: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,283 - WARNING - Erro na linha 7336: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,283 - WARNING - Erro na linha 7337: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,284 - WARNING - Erro na linha 7338: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,284 - WARNING - Erro na linha 7339: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,285 - WARNING - Erro na linha 7340: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,288 - WARNING - Erro na linha 7341: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,290 - WARNING - Erro na linha 7342: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,290 - WARNING - Erro na linha 7343: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,291 - WARNING - Erro na linha 7344: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,291 - WARNING - Erro na linha 7345: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,291 - WARNING - Erro na linha 7346: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,292 - WARNING - Erro na linha 7347: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,292 - WARNING - Erro na linha 7348: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,293 - WARNING - Erro na linha 7349: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,293 - WARNING - Erro na linha 7350: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,297 - WARNING - Erro na linha 7351: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,298 - WARNING - Erro na linha 7352: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,299 - WARNING - Erro na linha 7353: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,299 - WARNING - Erro na linha 7354: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,300 - WARNING - Erro na linha 7355: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,300 - WARNING - Erro na linha 7356: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,300 - WARNING - Erro na linha 7357: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,301 - WARNING - Erro na linha 7358: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,301 - WARNING - Erro na linha 7359: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,305 - WARNING - Erro na linha 7360: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,306 - WARNING - Erro na linha 7361: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,307 - WARNING - Erro na linha 7362: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,307 - WARNING - Erro na linha 7363: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,308 - WARNING - Erro na linha 7364: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,308 - WARNING - Erro na linha 7365: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,308 - WARNING - Erro na linha 7366: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,309 - WARNING - Erro na linha 7367: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,309 - WARNING - Erro na linha 7368: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,310 - WARNING - Erro na linha 7369: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,311 - WARNING - Erro na linha 7370: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,314 - WARNING - Erro na linha 7371: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,315 - WARNING - Erro na linha 7372: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,316 - WARNING - Erro na linha 7373: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,316 - WARNING - Erro na linha 7374: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,317 - WARNING - Erro na linha 7375: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,317 - WARNING - Erro na linha 7376: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,317 - WARNING - Erro na linha 7377: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,318 - WARNING - Erro na linha 7378: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,318 - WARNING - Erro na linha 7379: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,320 - WARNING - Erro na linha 7380: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,323 - WARNING - Erro na linha 7381: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,324 - WARNING - Erro na linha 7382: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,324 - WARNING - Erro na linha 7383: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,324 - WARNING - Erro na linha 7384: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,325 - WARNING - Erro na linha 7385: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,325 - WARNING - Erro na linha 7386: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,326 - WARNING - Erro na linha 7387: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,326 - WARNING - Erro na linha 7388: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,326 - WARNING - Erro na linha 7389: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,329 - WARNING - Erro na linha 7390: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,331 - WARNING - Erro na linha 7391: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,332 - WARNING - Erro na linha 7392: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,333 - WARNING - Erro na linha 7393: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,333 - WARNING - Erro na linha 7394: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,334 - WARNING - Erro na linha 7395: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,334 - WARNING - Erro na linha 7396: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,334 - WARNING - Erro na linha 7397: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,335 - WARNING - Erro na linha 7398: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,337 - WARNING - Erro na linha 7399: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,340 - WARNING - Erro na linha 7400: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,340 - WARNING - Erro na linha 7401: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,341 - WARNING - Erro na linha 7402: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,341 - WARNING - Erro na linha 7403: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,342 - WARNING - Erro na linha 7404: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,342 - WARNING - Erro na linha 7405: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,343 - WARNING - Erro na linha 7406: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,343 - WARNING - Erro na linha 7407: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,345 - WARNING - Erro na linha 7408: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,347 - WARNING - Erro na linha 7409: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,348 - WARNING - Erro na linha 7410: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,349 - WARNING - Erro na linha 7411: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,349 - WARNING - Erro na linha 7412: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,350 - WARNING - Erro na linha 7413: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,350 - WARNING - Erro na linha 7414: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,351 - WARNING - Erro na linha 7415: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,351 - WARNING - Erro na linha 7416: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,351 - WARNING - Erro na linha 7417: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,354 - WARNING - Erro na linha 7418: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,356 - WARNING - Erro na linha 7419: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,357 - WARNING - Erro na linha 7420: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,358 - WARNING - Erro na linha 7421: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,358 - WARNING - Erro na linha 7422: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,358 - WARNING - Erro na linha 7423: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,359 - WARNING - Erro na linha 7424: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,359 - WARNING - Erro na linha 7425: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,360 - WARNING - Erro na linha 7426: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,361 - WARNING - Erro na linha 7427: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,364 - WARNING - Erro na linha 7428: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,365 - WARNING - Erro na linha 7429: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,366 - WARNING - Erro na linha 7430: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,366 - WARNING - Erro na linha 7431: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,366 - WARNING - Erro na linha 7432: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,367 - WARNING - Erro na linha 7433: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,367 - WARNING - Erro na linha 7434: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,368 - WARNING - Erro na linha 7435: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,368 - WARNING - Erro na linha 7436: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,369 - WARNING - Erro na linha 7437: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,373 - WARNING - Erro na linha 7438: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,374 - WARNING - Erro na linha 7439: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,374 - WARNING - Erro na linha 7440: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,375 - WARNING - Erro na linha 7441: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,375 - WARNING - Erro na linha 7442: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,375 - WARNING - Erro na linha 7443: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,376 - WARNING - Erro na linha 7444: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,376 - WARNING - Erro na linha 7445: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,377 - WARNING - Erro na linha 7446: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,380 - WARNING - Erro na linha 7447: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,381 - WARNING - Erro na linha 7448: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,382 - WARNING - Erro na linha 7449: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,382 - WARNING - Erro na linha 7450: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,383 - WARNING - Erro na linha 7451: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,383 - WARNING - Erro na linha 7452: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,383 - WARNING - Erro na linha 7453: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,384 - WARNING - Erro na linha 7454: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,384 - WARNING - Erro na linha 7455: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,384 - WARNING - Erro na linha 7456: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,385 - WARNING - Erro na linha 7457: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,390 - WARNING - Erro na linha 7458: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,390 - WARNING - Erro na linha 7459: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,391 - WARNING - Erro na linha 7460: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,391 - WARNING - Erro na linha 7461: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,392 - WARNING - Erro na linha 7462: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,392 - WARNING - Erro na linha 7463: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,392 - WARNING - Erro na linha 7464: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,393 - WARNING - Erro na linha 7465: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,394 - WARNING - Erro na linha 7466: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,398 - WARNING - Erro na linha 7467: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,399 - WARNING - Erro na linha 7468: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,399 - WARNING - Erro na linha 7469: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,400 - WARNING - Erro na linha 7470: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,400 - WARNING - Erro na linha 7471: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,400 - WARNING - Erro na linha 7472: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,401 - WARNING - Erro na linha 7473: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,401 - WARNING - Erro na linha 7474: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,406 - WARNING - Erro na linha 7475: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,407 - WARNING - Erro na linha 7476: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,407 - WARNING - Erro na linha 7477: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,408 - WARNING - Erro na linha 7478: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,408 - WARNING - Erro na linha 7479: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,409 - WARNING - Erro na linha 7480: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,409 - WARNING - Erro na linha 7481: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,409 - WARNING - Erro na linha 7482: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,410 - WARNING - Erro na linha 7483: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,414 - WARNING - Erro na linha 7484: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,415 - WARNING - Erro na linha 7485: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,415 - WARNING - Erro na linha 7486: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,416 - WARNING - Erro na linha 7487: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,416 - WARNING - Erro na linha 7488: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,417 - WARNING - Erro na linha 7489: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,417 - WARNING - Erro na linha 7490: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,417 - WARNING - Erro na linha 7491: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,418 - WARNING - Erro na linha 7492: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,419 - WARNING - Erro na linha 7493: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,423 - WARNING - Erro na linha 7494: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,424 - WARNING - Erro na linha 7495: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,425 - WARNING - Erro na linha 7496: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,425 - WARNING - Erro na linha 7497: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,426 - WARNING - Erro na linha 7498: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,426 - WARNING - Erro na linha 7499: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,427 - WARNING - Erro na linha 7500: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,431 - WARNING - Erro na linha 7501: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,431 - WARNING - Erro na linha 7502: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,432 - WARNING - Erro na linha 7503: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,432 - WARNING - Erro na linha 7504: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,433 - WARNING - Erro na linha 7505: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,433 - WARNING - Erro na linha 7506: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,434 - WARNING - Erro na linha 7507: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,434 - WARNING - Erro na linha 7508: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,434 - WARNING - Erro na linha 7509: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,435 - WARNING - Erro na linha 7510: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,438 - WARNING - Erro na linha 7511: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,440 - WARNING - Erro na linha 7512: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,440 - WARNING - Erro na linha 7513: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,441 - WARNING - Erro na linha 7514: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,441 - WARNING - Erro na linha 7515: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,442 - WARNING - Erro na linha 7516: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,442 - WARNING - Erro na linha 7517: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,442 - WARNING - Erro na linha 7518: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,443 - WARNING - Erro na linha 7519: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,443 - WARNING - Erro na linha 7520: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,448 - WARNING - Erro na linha 7521: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,448 - WARNING - Erro na linha 7522: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,449 - WARNING - Erro na linha 7523: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,449 - WARNING - Erro na linha 7524: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,450 - WARNING - Erro na linha 7525: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,450 - WARNING - Erro na linha 7526: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,451 - WARNING - Erro na linha 7527: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,451 - WARNING - Erro na linha 7528: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,451 - WARNING - Erro na linha 7529: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,454 - WARNING - Erro na linha 7530: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,456 - WARNING - Erro na linha 7531: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,457 - WARNING - Erro na linha 7532: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,457 - WARNING - Erro na linha 7533: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,458 - WARNING - Erro na linha 7534: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,458 - WARNING - Erro na linha 7535: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,458 - WARNING - Erro na linha 7536: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,459 - WARNING - Erro na linha 7537: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,459 - WARNING - Erro na linha 7538: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,460 - WARNING - Erro na linha 7539: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,463 - WARNING - Erro na linha 7540: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,465 - WARNING - Erro na linha 7541: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,465 - WARNING - Erro na linha 7542: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,466 - WARNING - Erro na linha 7543: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,466 - WARNING - Erro na linha 7544: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,467 - WARNING - Erro na linha 7545: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,467 - WARNING - Erro na linha 7546: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,468 - WARNING - Erro na linha 7547: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,468 - WARNING - Erro na linha 7548: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,470 - WARNING - Erro na linha 7549: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,473 - WARNING - Erro na linha 7550: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,474 - WARNING - Erro na linha 7551: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,474 - WARNING - Erro na linha 7552: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,475 - WARNING - Erro na linha 7553: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,475 - WARNING - Erro na linha 7554: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,475 - WARNING - Erro na linha 7555: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,476 - WARNING - Erro na linha 7556: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,476 - WARNING - Erro na linha 7557: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,476 - WARNING - Erro na linha 7558: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,480 - WARNING - Erro na linha 7559: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,481 - WARNING - Erro na linha 7560: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,482 - WARNING - Erro na linha 7561: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,482 - WARNING - Erro na linha 7562: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,483 - WARNING - Erro na linha 7563: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,483 - WARNING - Erro na linha 7564: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,484 - WARNING - Erro na linha 7565: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,484 - WARNING - Erro na linha 7566: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,484 - WARNING - Erro na linha 7567: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,485 - WARNING - Erro na linha 7568: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,486 - WARNING - Erro na linha 7569: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,489 - WARNING - Erro na linha 7570: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,490 - WARNING - Erro na linha 7571: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,490 - WARNING - Erro na linha 7572: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,491 - WARNING - Erro na linha 7573: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,491 - WARNING - Erro na linha 7574: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,492 - WARNING - Erro na linha 7575: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,492 - WARNING - Erro na linha 7576: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,492 - WARNING - Erro na linha 7577: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,493 - WARNING - Erro na linha 7578: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,494 - WARNING - Erro na linha 7579: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,498 - WARNING - Erro na linha 7580: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,499 - WARNING - Erro na linha 7581: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,499 - WARNING - Erro na linha 7582: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,500 - WARNING - Erro na linha 7583: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,500 - WARNING - Erro na linha 7584: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,501 - WARNING - Erro na linha 7585: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,501 - WARNING - Erro na linha 7586: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,501 - WARNING - Erro na linha 7587: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,505 - WARNING - Erro na linha 7588: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,506 - WARNING - Erro na linha 7589: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,507 - WARNING - Erro na linha 7590: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,507 - WARNING - Erro na linha 7591: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,508 - WARNING - Erro na linha 7592: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,508 - WARNING - Erro na linha 7593: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,508 - WARNING - Erro na linha 7594: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,509 - WARNING - Erro na linha 7595: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,509 - WARNING - Erro na linha 7596: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,509 - WARNING - Erro na linha 7597: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,510 - WARNING - Erro na linha 7598: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,514 - WARNING - Erro na linha 7599: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,515 - WARNING - Erro na linha 7600: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,515 - WARNING - Erro na linha 7601: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,516 - WARNING - Erro na linha 7602: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,516 - WARNING - Erro na linha 7603: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,516 - WARNING - Erro na linha 7604: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,517 - WARNING - Erro na linha 7605: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,517 - WARNING - Erro na linha 7606: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,517 - WARNING - Erro na linha 7607: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,518 - WARNING - Erro na linha 7608: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,518 - WARNING - Erro na linha 7609: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,521 - WARNING - Erro na linha 7610: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,523 - WARNING - Erro na linha 7611: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,524 - WARNING - Erro na linha 7612: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,524 - WARNING - Erro na linha 7613: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,525 - WARNING - Erro na linha 7614: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,525 - WARNING - Erro na linha 7615: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,525 - WARNING - Erro na linha 7616: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,526 - WARNING - Erro na linha 7617: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,526 - WARNING - Erro na linha 7618: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,527 - WARNING - Erro na linha 7619: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,531 - WARNING - Erro na linha 7620: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,532 - WARNING - Erro na linha 7621: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,532 - WARNING - Erro na linha 7622: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,533 - WARNING - Erro na linha 7623: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,533 - WARNING - Erro na linha 7624: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,534 - WARNING - Erro na linha 7625: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,534 - WARNING - Erro na linha 7626: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,534 - WARNING - Erro na linha 7627: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,535 - WARNING - Erro na linha 7628: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,536 - WARNING - Erro na linha 7629: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,539 - WARNING - Erro na linha 7630: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,540 - WARNING - Erro na linha 7631: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,541 - WARNING - Erro na linha 7632: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,541 - WARNING - Erro na linha 7633: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,541 - WARNING - Erro na linha 7634: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,542 - WARNING - Erro na linha 7635: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,542 - WARNING - Erro na linha 7636: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,543 - WARNING - Erro na linha 7637: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,546 - WARNING - Erro na linha 7638: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,548 - WARNING - Erro na linha 7639: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,548 - WARNING - Erro na linha 7640: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,549 - WARNING - Erro na linha 7641: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,549 - WARNING - Erro na linha 7642: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,550 - WARNING - Erro na linha 7643: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,550 - WARNING - Erro na linha 7644: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,550 - WARNING - Erro na linha 7645: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,551 - WARNING - Erro na linha 7646: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,551 - WARNING - Erro na linha 7647: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,552 - WARNING - Erro na linha 7648: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,556 - WARNING - Erro na linha 7649: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,557 - WARNING - Erro na linha 7650: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,557 - WARNING - Erro na linha 7651: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,558 - WARNING - Erro na linha 7652: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,558 - WARNING - Erro na linha 7653: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,559 - WARNING - Erro na linha 7654: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,559 - WARNING - Erro na linha 7655: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,559 - WARNING - Erro na linha 7656: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,559 - WARNING - Erro na linha 7657: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,560 - WARNING - Erro na linha 7658: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,564 - WARNING - Erro na linha 7659: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,565 - WARNING - Erro na linha 7660: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,566 - WARNING - Erro na linha 7661: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,566 - WARNING - Erro na linha 7662: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,566 - WARNING - Erro na linha 7663: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,567 - WARNING - Erro na linha 7664: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,567 - WARNING - Erro na linha 7665: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,568 - WARNING - Erro na linha 7666: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,568 - WARNING - Erro na linha 7667: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,571 - WARNING - Erro na linha 7668: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,573 - WARNING - Erro na linha 7669: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,574 - WARNING - Erro na linha 7670: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,575 - WARNING - Erro na linha 7671: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,575 - WARNING - Erro na linha 7672: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,575 - WARNING - Erro na linha 7673: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,576 - WARNING - Erro na linha 7674: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,576 - WARNING - Erro na linha 7675: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,577 - WARNING - Erro na linha 7676: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,580 - WARNING - Erro na linha 7677: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,581 - WARNING - Erro na linha 7678: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,582 - WARNING - Erro na linha 7679: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,583 - WARNING - Erro na linha 7680: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,583 - WARNING - Erro na linha 7681: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,583 - WARNING - Erro na linha 7682: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,584 - WARNING - Erro na linha 7683: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,584 - WARNING - Erro na linha 7684: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,585 - WARNING - Erro na linha 7685: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,587 - WARNING - Erro na linha 7686: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,590 - WARNING - Erro na linha 7687: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,591 - WARNING - Erro na linha 7688: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,591 - WARNING - Erro na linha 7689: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,592 - WARNING - Erro na linha 7690: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,592 - WARNING - Erro na linha 7691: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,592 - WARNING - Erro na linha 7692: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,593 - WARNING - Erro na linha 7693: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,594 - WARNING - Erro na linha 7694: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,597 - WARNING - Erro na linha 7695: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,598 - WARNING - Erro na linha 7696: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,599 - WARNING - Erro na linha 7697: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,599 - WARNING - Erro na linha 7698: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,600 - WARNING - Erro na linha 7699: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,600 - WARNING - Erro na linha 7700: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,600 - WARNING - Erro na linha 7701: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,601 - WARNING - Erro na linha 7702: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,601 - WARNING - Erro na linha 7703: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,603 - WARNING - Erro na linha 7704: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,606 - WARNING - Erro na linha 7705: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,607 - WARNING - Erro na linha 7706: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,607 - WARNING - Erro na linha 7707: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,608 - WARNING - Erro na linha 7708: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,608 - WARNING - Erro na linha 7709: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,608 - WARNING - Erro na linha 7710: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,609 - WARNING - Erro na linha 7711: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,609 - WARNING - Erro na linha 7712: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,609 - WARNING - Erro na linha 7713: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,610 - WARNING - Erro na linha 7714: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,612 - WARNING - Erro na linha 7715: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,615 - WARNING - Erro na linha 7716: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,616 - WARNING - Erro na linha 7717: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,616 - WARNING - Erro na linha 7718: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,617 - WARNING - Erro na linha 7719: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,617 - WARNING - Erro na linha 7720: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,618 - WARNING - Erro na linha 7721: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,618 - WARNING - Erro na linha 7722: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,618 - WARNING - Erro na linha 7723: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,620 - WARNING - Erro na linha 7724: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,623 - WARNING - Erro na linha 7725: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,623 - WARNING - Erro na linha 7726: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,624 - WARNING - Erro na linha 7727: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,624 - WARNING - Erro na linha 7728: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,625 - WARNING - Erro na linha 7729: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,625 - WARNING - Erro na linha 7730: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,625 - WARNING - Erro na linha 7731: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,626 - WARNING - Erro na linha 7732: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,626 - WARNING - Erro na linha 7733: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,627 - WARNING - Erro na linha 7734: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,627 - WARNING - Erro na linha 7735: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,628 - WARNING - Erro na linha 7736: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,631 - WARNING - Erro na linha 7737: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,631 - WARNING - Erro na linha 7738: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,632 - WARNING - Erro na linha 7739: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,632 - WARNING - Erro na linha 7740: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,633 - WARNING - Erro na linha 7741: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,633 - WARNING - Erro na linha 7742: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,634 - WARNING - Erro na linha 7743: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,634 - WARNING - Erro na linha 7744: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,634 - WARNING - Erro na linha 7745: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,635 - WARNING - Erro na linha 7746: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,636 - WARNING - Erro na linha 7747: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,638 - WARNING - Erro na linha 7748: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,639 - WARNING - Erro na linha 7749: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,640 - WARNING - Erro na linha 7750: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,641 - WARNING - Erro na linha 7751: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,641 - WARNING - Erro na linha 7752: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,642 - WARNING - Erro na linha 7753: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,642 - WARNING - Erro na linha 7754: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,642 - WARNING - Erro na linha 7755: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,643 - WARNING - Erro na linha 7756: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,643 - WARNING - Erro na linha 7757: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,644 - WARNING - Erro na linha 7758: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,645 - WARNING - Erro na linha 7759: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,647 - WARNING - Erro na linha 7760: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,648 - WARNING - Erro na linha 7761: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,649 - WARNING - Erro na linha 7762: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,649 - WARNING - Erro na linha 7763: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,649 - WARNING - Erro na linha 7764: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,650 - WARNING - Erro na linha 7765: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,650 - WARNING - Erro na linha 7766: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,651 - WARNING - Erro na linha 7767: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,651 - WARNING - Erro na linha 7768: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,653 - WARNING - Erro na linha 7769: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,656 - WARNING - Erro na linha 7770: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,656 - WARNING - Erro na linha 7771: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,657 - WARNING - Erro na linha 7772: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,657 - WARNING - Erro na linha 7773: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,658 - WARNING - Erro na linha 7774: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,658 - WARNING - Erro na linha 7775: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,659 - WARNING - Erro na linha 7776: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,659 - WARNING - Erro na linha 7777: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,659 - WARNING - Erro na linha 7778: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,660 - WARNING - Erro na linha 7779: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,661 - WARNING - Erro na linha 7780: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,664 - WARNING - Erro na linha 7781: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,665 - WARNING - Erro na linha 7782: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,666 - WARNING - Erro na linha 7783: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,666 - WARNING - Erro na linha 7784: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,667 - WARNING - Erro na linha 7785: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,667 - WARNING - Erro na linha 7786: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,667 - WARNING - Erro na linha 7787: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,668 - WARNING - Erro na linha 7788: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,670 - WARNING - Erro na linha 7789: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,673 - WARNING - Erro na linha 7790: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,674 - WARNING - Erro na linha 7791: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,674 - WARNING - Erro na linha 7792: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,674 - WARNING - Erro na linha 7793: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,675 - WARNING - Erro na linha 7794: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,675 - WARNING - Erro na linha 7795: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,675 - WARNING - Erro na linha 7796: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,676 - WARNING - Erro na linha 7797: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,676 - WARNING - Erro na linha 7798: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,677 - WARNING - Erro na linha 7799: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,681 - WARNING - Erro na linha 7800: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,682 - WARNING - Erro na linha 7801: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,682 - WARNING - Erro na linha 7802: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,683 - WARNING - Erro na linha 7803: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,683 - WARNING - Erro na linha 7804: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,684 - WARNING - Erro na linha 7805: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,684 - WARNING - Erro na linha 7806: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,684 - WARNING - Erro na linha 7807: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,685 - WARNING - Erro na linha 7808: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,687 - WARNING - Erro na linha 7809: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,689 - WARNING - Erro na linha 7810: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,690 - WARNING - Erro na linha 7811: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,691 - WARNING - Erro na linha 7812: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,691 - WARNING - Erro na linha 7813: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,692 - WARNING - Erro na linha 7814: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,692 - WARNING - Erro na linha 7815: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,692 - WARNING - Erro na linha 7816: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,693 - WARNING - Erro na linha 7817: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,694 - WARNING - Erro na linha 7818: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,698 - WARNING - Erro na linha 7819: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,698 - WARNING - Erro na linha 7820: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,699 - WARNING - Erro na linha 7821: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,699 - WARNING - Erro na linha 7822: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,700 - WARNING - Erro na linha 7823: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,700 - WARNING - Erro na linha 7824: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,700 - WARNING - Erro na linha 7825: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,701 - WARNING - Erro na linha 7826: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,701 - WARNING - Erro na linha 7827: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,701 - WARNING - Erro na linha 7828: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,704 - WARNING - Erro na linha 7829: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,706 - WARNING - Erro na linha 7830: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,707 - WARNING - Erro na linha 7831: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,707 - WARNING - Erro na linha 7832: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,708 - WARNING - Erro na linha 7833: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,708 - WARNING - Erro na linha 7834: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,708 - WARNING - Erro na linha 7835: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,709 - WARNING - Erro na linha 7836: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,709 - WARNING - Erro na linha 7837: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,710 - WARNING - Erro na linha 7838: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,711 - WARNING - Erro na linha 7839: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,714 - WARNING - Erro na linha 7840: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,715 - WARNING - Erro na linha 7841: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,715 - WARNING - Erro na linha 7842: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,716 - WARNING - Erro na linha 7843: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,716 - WARNING - Erro na linha 7844: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,717 - WARNING - Erro na linha 7845: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,717 - WARNING - Erro na linha 7846: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,718 - WARNING - Erro na linha 7847: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,719 - WARNING - Erro na linha 7848: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,722 - WARNING - Erro na linha 7849: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,723 - WARNING - Erro na linha 7850: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,724 - WARNING - Erro na linha 7851: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,724 - WARNING - Erro na linha 7852: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,725 - WARNING - Erro na linha 7853: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,725 - WARNING - Erro na linha 7854: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,726 - WARNING - Erro na linha 7855: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,726 - WARNING - Erro na linha 7856: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,726 - WARNING - Erro na linha 7857: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,729 - WARNING - Erro na linha 7858: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,731 - WARNING - Erro na linha 7859: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,732 - WARNING - Erro na linha 7860: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,732 - WARNING - Erro na linha 7861: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,733 - WARNING - Erro na linha 7862: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,733 - WARNING - Erro na linha 7863: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,733 - WARNING - Erro na linha 7864: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,734 - WARNING - Erro na linha 7865: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,734 - WARNING - Erro na linha 7866: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,734 - WARNING - Erro na linha 7867: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,735 - WARNING - Erro na linha 7868: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,739 - WARNING - Erro na linha 7869: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,740 - WARNING - Erro na linha 7870: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,740 - WARNING - Erro na linha 7871: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,741 - WARNING - Erro na linha 7872: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,741 - WARNING - Erro na linha 7873: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,741 - WARNING - Erro na linha 7874: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,742 - WARNING - Erro na linha 7875: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,742 - WARNING - Erro na linha 7876: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,743 - WARNING - Erro na linha 7877: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,745 - WARNING - Erro na linha 7878: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,747 - WARNING - Erro na linha 7879: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,748 - WARNING - Erro na linha 7880: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,749 - WARNING - Erro na linha 7881: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,749 - WARNING - Erro na linha 7882: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,749 - WARNING - Erro na linha 7883: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,750 - WARNING - Erro na linha 7884: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,750 - WARNING - Erro na linha 7885: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,750 - WARNING - Erro na linha 7886: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,751 - WARNING - Erro na linha 7887: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,751 - WARNING - Erro na linha 7888: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,752 - WARNING - Erro na linha 7889: Valores obrigatórios ausentes ou inválidos.
+2025-07-24 10:28:33,755 - WARNING - Total de 1342 erros durante o processamento
+2025-07-24 10:28:33,756 - INFO - Processando inserção de 6547 autos de infração válidos
+2025-07-24 10:28:37,836 - INFO - Upload concluído: 6547 autos de infração inseridos com sucesso
+2025-07-24 10:30:05,592 - INFO - CSV carregado com 7889 registros
+2025-07-24 10:30:05,593 - INFO - Colunas disponíveis: ['SEQ_AUTO_INFRACAO', 'DES_STATUS_FORMULARIO', 'DS_SIT_AUTO_AIE', 'SIT_CANCELADO', 'NUM_AUTO_INFRACAO', 'SER_AUTO_INFRACAO', 'CD_ORIGINAL_AUTO_INFRACAO', 'TIPO_AUTO', 'TIPO_MULTA', 'VAL_AUTO_INFRACAO', 'FUNDAMENTACAO_MULTA', 'PATRIMONIO_APURACAO', 'GRAVIDADE_INFRACAO', 'CD_NIVEL_GRAVIDADE', 'MOTIVACAO_CONDUTA', 'EFEITO_MEIO_AMBIENTE', 'EFEITO_SAUDE_PUBLICA', 'PASSIVEL_RECUPERACAO', 'UNID_ARRECADACAO', 'DES_AUTO_INFRACAO', 'DAT_HORA_AUTO_INFRACAO', 'FORMA_ENTREGA', 'DAT_CIENCIA_AUTUACAO', 'DT_FATO_INFRACIONAL', 'DT_INICIO_ATO_INEQUIVOCO', 'DT_FIM_ATO_INEQUIVOCO', 'COD_MUNICIPIO', 'MUNICIPIO', 'UF', 'NUM_PROCESSO', 'COD_INFRACAO', 'DES_INFRACAO', 'TIPO_INFRACAO', 'DES_RECEITA', 'NUM_PESSOA_INFRATOR', 'NOME_INFRATOR', 'CPF_CNPJ_INFRATOR', 'QT_AREA', 'INFRACAO_AREA', 'DES_OUTROS_TIPO_AREA', 'CLASSIFICACAO_AREA', 'NUM_LONGITUDE_AUTO', 'NUM_LATITUDE_AUTO', 'DS_WKT', 'DES_LOCAL_INFRACAO', 'UNIDADE_CONSERVACAO', 'DS_BIOMAS_ATINGIDOS', 'SEQ_NOTIFICACAO', 'SEQ_ACAO_FISCALIZATORIA', 'CD_ACAO_FISCALIZATORIA', 'UNID_CONTROLE', 'TIPO_ACAO', 'OPERACAO', 'DENUNCIA_SISLIV', 'SEQ_ORDEM_FISCALIZACAO', 'ORDEM_FISCALIZACAO', 'UNID_ORDENADORA', 'SEQ_SOLICITACAO_RECURSO', 'SOLICITACAO_RECURSO', 'OPERACAO_SOL_RECURSO', 'DT_LANCAMENTO', 'DT_ULT_ALTERACAO', 'TP_ULT_ALTERACAO', 'JUSTIFICATIVA_ALTERACAO', 'WKT_GE_AREA_AUTUADA', 'DT_ULT_ALTER_GEOM', 'TP_ORIGEM_GE_AREA_AUTUADA', 'ULTIMA_ATUALIZACAO_RELATORIO']
+2025-07-24 10:30:05,621 - INFO - Registros com datas válidas: 7134
+2025-07-24 10:30:05,622 - WARNING - Registros com datas inválidas ignorados: 755
+2025-07-24 10:30:06,923 - INFO - Infratores existentes na base: 9098
+2025-07-24 10:30:06,923 - INFO - Iniciando processamento de 7134 registros válidos...
+2025-07-24 10:30:06,947 - INFO - Primeiro registro - Colunas da linha: ['SEQ_AUTO_INFRACAO', 'DES_STATUS_FORMULARIO', 'DS_SIT_AUTO_AIE', 'SIT_CANCELADO', 'NUM_AUTO_INFRACAO', 'SER_AUTO_INFRACAO', 'CD_ORIGINAL_AUTO_INFRACAO', 'TIPO_AUTO', 'TIPO_MULTA', 'VAL_AUTO_INFRACAO', 'FUNDAMENTACAO_MULTA', 'PATRIMONIO_APURACAO', 'GRAVIDADE_INFRACAO', 'CD_NIVEL_GRAVIDADE', 'MOTIVACAO_CONDUTA', 'EFEITO_MEIO_AMBIENTE', 'EFEITO_SAUDE_PUBLICA', 'PASSIVEL_RECUPERACAO', 'UNID_ARRECADACAO', 'DES_AUTO_INFRACAO', 'DAT_HORA_AUTO_INFRACAO', 'FORMA_ENTREGA', 'DAT_CIENCIA_AUTUACAO', 'DT_FATO_INFRACIONAL', 'DT_INICIO_ATO_INEQUIVOCO', 'DT_FIM_ATO_INEQUIVOCO', 'COD_MUNICIPIO', 'MUNICIPIO', 'UF', 'NUM_PROCESSO', 'COD_INFRACAO', 'DES_INFRACAO', 'TIPO_INFRACAO', 'DES_RECEITA', 'NUM_PESSOA_INFRATOR', 'NOME_INFRATOR', 'CPF_CNPJ_INFRATOR', 'QT_AREA', 'INFRACAO_AREA', 'DES_OUTROS_TIPO_AREA', 'CLASSIFICACAO_AREA', 'NUM_LONGITUDE_AUTO', 'NUM_LATITUDE_AUTO', 'DS_WKT', 'DES_LOCAL_INFRACAO', 'UNIDADE_CONSERVACAO', 'DS_BIOMAS_ATINGIDOS', 'SEQ_NOTIFICACAO', 'SEQ_ACAO_FISCALIZATORIA', 'CD_ACAO_FISCALIZATORIA', 'UNID_CONTROLE', 'TIPO_ACAO', 'OPERACAO', 'DENUNCIA_SISLIV', 'SEQ_ORDEM_FISCALIZACAO', 'ORDEM_FISCALIZACAO', 'UNID_ORDENADORA', 'SEQ_SOLICITACAO_RECURSO', 'SOLICITACAO_RECURSO', 'OPERACAO_SOL_RECURSO', 'DT_LANCAMENTO', 'DT_ULT_ALTERACAO', 'TP_ULT_ALTERACAO', 'JUSTIFICATIVA_ALTERACAO', 'WKT_GE_AREA_AUTUADA', 'DT_ULT_ALTER_GEOM', 'TP_ORIGEM_GE_AREA_AUTUADA', 'ULTIMA_ATUALIZACAO_RELATORIO', 'DT_INICIO_CONVERTED', 'DT_FIM_CONVERTED']
+2025-07-24 10:30:07,011 - INFO - Processados 1000 registros...
+2025-07-24 10:30:07,073 - INFO - Processados 2000 registros...
+2025-07-24 10:30:07,155 - INFO - Processados 3000 registros...
+2025-07-24 10:30:07,221 - INFO - Processados 4000 registros...
+2025-07-24 10:30:07,289 - INFO - Processados 5000 registros...
+2025-07-24 10:30:07,363 - INFO - Processados 6000 registros...
+2025-07-24 10:30:07,445 - INFO - Agrupamento concluído. 5795 infratores únicos identificados no CSV
+2025-07-24 10:30:07,453 - INFO - Processamento concluído. Novos infratores: 5558, Atualizações: 91, Erros: 0
+2025-07-24 10:30:12,345 - INFO - Inseridos 5558 novos infratores em lote
+2025-07-24 10:30:21,854 - INFO - Atualizados 91 infratores existentes
+2025-07-24 10:30:21,855 - INFO - Upload concluído: 5558 novos infratores inseridos, 91 atualizações, 0 erros
+2025-07-24 10:37:16,906 - INFO - Infrator encontrado: IFF ESSENCIAS E FRAGRANCIAS LTDA
+2025-07-24 10:48:46,864 - INFO - Gerando relatório de infratores
+2025-07-24 10:48:48,818 - INFO - Infratores por estado: [{'estado': 'PA', 'count': 2031}, {'estado': 'MT', 'count': 1113}, {'estado': 'RO', 'count': 1004}, {'estado': 'AM', 'count': 951}, {'estado': 'CE', 'count': 780}, {'estado': 'SP', 'count': 723}, {'estado': 'PR', 'count': 665}, {'estado': 'BA', 'count': 583}, {'estado': 'MG', 'count': 550}, {'estado': 'AC', 'count': 549}, {'estado': 'ES', 'count': 537}, {'estado': 'RR', 'count': 526}, {'estado': 'RN', 'count': 518}, {'estado': 'PI', 'count': 443}, {'estado': 'PE', 'count': 407}, {'estado': 'MS', 'count': 387}, {'estado': 'RS', 'count': 374}, {'estado': 'SC', 'count': 340}, {'estado': 'TO', 'count': 336}, {'estado': 'PB', 'count': 315}, {'estado': 'MA', 'count': 285}, {'estado': 'RJ', 'count': 282}, {'estado': 'GO', 'count': 281}, {'estado': 'AL', 'count': 227}, {'estado': 'SE', 'count': 191}, {'estado': 'DF', 'count': 143}, {'estado': 'AP', 'count': 115}]
+2025-07-24 10:48:48,823 - INFO - Infratores por área de infração: [{'infracao_area': 'Atividade', 'count': 5790}, {'infracao_area': 'Desmatamento', 'count': 4264}, {'infracao_area': 'Não se Aplica', 'count': 3852}, {'infracao_area': 'Outros', 'count': 341}, {'infracao_area': 'Queimada', 'count': 162}, {'infracao_area': 'Desmatamento e Queimada', 'count': 134}, {'infracao_area': 'Não se aplica', 'count': 89}, {'infracao_area': 'Outro(s)', 'count': 22}, {'infracao_area': '', 'count': 2}]
+2025-07-24 10:48:50,033 - INFO - Gráfico de infratores por estado gerado com sucesso
