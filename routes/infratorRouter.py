@@ -2,11 +2,12 @@ from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
 from fastapi.responses import StreamingResponse
 from models.infratores import InfratorCreate, InfratorOut, PaginatedInfratorResponse
-from database import infrator_collection
+from database import infrator_collection, enquadramento_collection, auto_infracao_collection
 import matplotlib.pyplot as plt
 import pandas as pd
 import io
 from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
 import math
 from logs.logger import logger
 
@@ -342,6 +343,8 @@ async def list_infratores(
             doc["id"] = str(doc["_id"])
             del doc["_id"]
             infratores.append(InfratorOut(**doc))
+
+        logger.info(f"Listando {len(infratores)} infratores na página {page} com tamanho {size}")
         
         return PaginatedInfratorResponse(
             total=total,
@@ -354,49 +357,91 @@ async def list_infratores(
         logger.error(f"Erro ao listar infratores: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Erro ao listar infratores: {str(e)}")
 
-@router.get("/check-collection")
-async def check_collection():
+@router.get("/infratores/count")
+async def count_infratores(
+    nome: str = Query(None, description="Filtrar por nome do infrator"),
+    estado: str = Query(None, description="Filtrar por estado"),
+    municipio: str = Query(None, description="Filtrar por município")
+):
     """
-    Verificar se a coleção existe e seu status
+    Contar infratores com filtros
     """
     try:
-        # Verificar se a coleção existe
-        collections = await infrator_collection.database.list_collection_names()
-        collection_exists = infrator_collection.name in collections
+        # Construir filtros
+        filters = {}
+        if nome:
+            filters["nome_infrator"] = {"$regex": nome, "$options": "i"}
+        if estado:
+            filters["estado"] = {"$regex": estado, "$options": "i"}
+        if municipio:
+            filters["municipio"] = {"$regex": municipio, "$options": "i"}
         
-        # Contar documentos
-        count = await infrator_collection.count_documents({})
+        # Contar infratores
+        total = await infrator_collection.count_documents(filters)
         
-        # Obter um documento de exemplo (se existir)
-        sample_doc = await infrator_collection.find_one({})
+        logger.info(f"Total de infratores encontrados: {total}")
         
-        return {
-            "collection_name": infrator_collection.name,
-            "collection_exists": collection_exists,
-            "document_count": count,
-            "database_name": infrator_collection.database.name,
-            "all_collections": collections,
-            "sample_document": str(sample_doc) if sample_doc else None
-        }
+        return {"total_infratores": total}
         
     except Exception as e:
-        logger.error(f"Erro ao verificar coleção: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Erro ao verificar coleção: {str(e)}")
+        logger.error(f"Erro ao contar infratores: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro ao contar infratores: {str(e)}")
+    
+@router.get("/infrator_report")
+async def infrator_report():
+    """
+    Endpoint para gerar relatório de infratores, incluindo gráficos e estatísticas
+    """
+    logger.info("Gerando relatório de infratores")
+    try:
+        cursor = infrator_collection.find({})
+        data = await cursor.to_list(length=None)
 
-@router.delete("/clear")
-async def clear_collection():
-    """
-    Limpar todos os infratores da coleção (usar com cuidado!)
-    """
-    try:
-        result = await infrator_collection.delete_many({})
-        logger.info(f"Coleção limpa: {result.deleted_count} documentos removidos")
+        if not data:
+            logger.warning("Nenhum infrator encontrado para o relatório")
+            return {"message": "Nenhum infrator encontrado para o relatório"}
         
-        return {
-            "message": f"Coleção limpa com sucesso",
-            "documentos_removidos": result.deleted_count
-        }
+        df = pd.DataFrame(data)
+        if df.empty:
+            logger.warning("DataFrame vazio, nenhum infrator encontrado")
+            return {"message": "Nenhum infrator encontrado para o relatório"}
         
+        # Converter datas
+        df['dt_inicio_ato_inequivoco'] = pd.to_datetime(df['dt_inicio_ato_inequivoco'], errors='coerce')
+        df['dt_fim_ato_inequivoco'] = pd.to_datetime(df['dt_fim_ato_inequivoco'], errors='coerce')
+        df.dropna(subset=['dt_inicio_ato_inequivoco', 'dt_fim_ato_inequivoco'], inplace=True)
+        if df.empty:
+            logger.warning("Após conversão de datas, DataFrame ainda está vazio")
+            return {"message": "Nenhum infrator encontrado para o relatório"}
+        # Agrupar por estado
+        infratores_por_estado = df.groupby('estado').size().reset_index(name='count')
+        infratores_por_estado = infratores_por_estado.sort_values(by='count', ascending=False)
+        logger.info(f"Infratores por estado: {infratores_por_estado.to_dict(orient='records')}")
+        # Agrupar por área de infração
+        infratores_por_area = df.groupby('infracao_area').size().reset_index(name='count')
+        infratores_por_area = infratores_por_area.sort_values(by='count', ascending=False)
+        logger.info(f"Infratores por área de infração: {infratores_por_area.to_dict(orient='records')}")
+        # Criar gráfico de barras para infratores por estado
+        plt.figure(figsize=(10, 6))
+        plt.bar(infratores_por_estado['estado'], infratores_por_estado['count'], color='skyblue')
+        plt.title('Número de Infratores por Estado')
+        plt.xlabel('Estado')
+        plt.ylabel('Número de Infratores')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        img_estado = io.BytesIO()
+        plt.savefig(img_estado, format='png')
+        img_estado.seek(0)
+        
+        logger.info("Gráfico de infratores por estado gerado com sucesso")
+        return StreamingResponse(
+            img_estado,
+            media_type="image/png",
+            headers={"Content-Disposition": "inline; filename=infratores_por_estado.png"}
+        )
     except Exception as e:
-        logger.error(f"Erro ao limpar coleção: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Erro ao limpar coleção: {str(e)}")
+        logger.error(f"Erro ao gerar relatório de infratores: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro ao gerar relatório de infratores: {str(e)}") 
+    finally:
+        plt.close()
+
