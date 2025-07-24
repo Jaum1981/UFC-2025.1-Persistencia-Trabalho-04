@@ -134,6 +134,61 @@ async def get_top_municipios_auto_infracao():
         logger.error(f"Erro ao gerar ranking de municípios: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
+
+@router.get("/stats/auto_infracao/top_municipios/plot")
+async def plot_top_municipios_auto_infracao():
+    """
+    Gera um gráfico de barras com os 5 municípios com mais autos de infração.
+    """
+    logger.info("Gerando gráfico de ranking de municípios com mais autos de infração")
+    try:
+        # Pipeline MongoDB
+        pipeline = [
+            {"$group": {
+                "_id": "$municipio",
+                "total": {"$sum": 1}
+            }},
+            {"$sort": {"total": -1}},
+            {"$limit": 5},
+            {"$project": {
+                "municipio": "$_id",
+                "total": 1,
+                "_id": 0
+            }}
+        ]
+        stats = await auto_infracao_collection.aggregate(pipeline).to_list(None)
+
+        # Dados para o gráfico
+        municipios = [item["municipio"] for item in stats]
+        totais = [item["total"] for item in stats]
+
+        # Criar o gráfico
+        plt.figure(figsize=(10, 6))
+        bars = plt.bar(municipios, totais, color="royalblue")
+        plt.title("Top 5 Municípios com Mais Autos de Infração")
+        plt.xlabel("Município")
+        plt.ylabel("Quantidade de Autos")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        # Adiciona os valores sobre as barras
+        for bar in bars:
+            yval = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width() / 2, yval + 0.3, yval, ha='center', va='bottom')
+
+        # Envia como imagem PNG
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        plt.close()
+
+        return StreamingResponse(buf, media_type="image/png")
+    except Exception as e:
+        logger.error(f"Erro ao gerar gráfico de ranking de municípios: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @router.get("/count_auto_infracao")
 async def count_auto_infracao():
     logger.info("Contando total de autos de infração na coleção")

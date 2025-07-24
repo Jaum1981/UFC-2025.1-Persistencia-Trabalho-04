@@ -4,6 +4,8 @@ from database import edificio_IBAMA_collection
 import pandas as pd
 import io
 import re
+from fastapi.responses import StreamingResponse
+import matplotlib.pyplot as plt
 
 from models.edificio_IBAMA import Edf_Pub_Civil_IBAMACreate, Edf_Pub_Civil_IBAMAOut, PaginatedEdf_Pub_Civil_IBAMAResponse
 from logs.logger import logger
@@ -79,6 +81,58 @@ async def upload_edf_csv(file: UploadFile = File(...)):
         )
         for idx, doc in enumerate(docs)
     ]
+
+@router.get("/stats/edificios/estado/plot")
+async def plot_edificios_por_estado():
+    """
+    Gera um gráfico de barras com o número de edifícios por estado.
+    """
+    logger.info("Gerando gráfico de número de edifícios por estado")
+    try:
+        pipeline = [
+            {"$group": {
+                "_id": "$estado",
+                "total_edificios": {"$sum": 1}
+            }},
+            {"$project": {
+                "estado": "$_id",
+                "total_edificios": 1,
+                "_id": 0
+            }},
+            {"$sort": {"total_edificios": -1}}
+        ]
+        stats = await edificio_IBAMA_collection.aggregate(pipeline).to_list(None)
+
+        # Dados para o gráfico
+        estados = [item["estado"] for item in stats]
+        totais = [item["total_edificios"] for item in stats]
+
+        # Criar gráfico de barras
+        plt.figure(figsize=(10, 6))
+        bars = plt.bar(estados, totais, color="teal")
+        plt.title("Número de Edifícios por Estado (Sigla)")
+        plt.xlabel("Estado")
+        plt.ylabel("Total de Edifícios")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        # Adiciona rótulos nas barras
+        for bar in bars:
+            yval = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width() / 2, yval + 0.2, yval, ha='center', va='bottom')
+
+        # Exportar como imagem PNG
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        plt.close()
+
+        return StreamingResponse(buf, media_type="image/png")
+
+    except Exception as e:
+        logger.error(f"Erro ao gerar gráfico de edifícios por estado: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @router.get("/stats/edificios/municipio")
 async def get_edificio_stats_municipio():
