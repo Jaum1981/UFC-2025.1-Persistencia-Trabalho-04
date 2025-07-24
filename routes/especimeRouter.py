@@ -4,6 +4,8 @@ from models.especime import EspecimeCreate, EspecimeOut, PaginatedEspecimeRespon
 from database import especime_collection
 import pandas as pd
 import io
+from fastapi.responses import StreamingResponse
+import matplotlib.pyplot as plt
 from logs.logger import logger
 
 router = APIRouter(prefix="/especime", tags=["Especime"])
@@ -82,6 +84,78 @@ async def upload_especime_csv(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"Erro interno no upload de espécimes: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+    
+@router.get("/stats/especime/tipo")
+async def get_stats_especime_tipo():
+    """
+    Quantidade total de espécimes por tipo (Fauna, Flora etc.).
+    """
+    logger.info("Gerando estatísticas de espécimes por tipo")
+    try:
+        pipeline = [
+            {"$group": {
+                "_id": "$tipo",
+                "total_especimes": {"$sum": "$quantidade"}
+            }},
+            {"$project": {
+                "tipo": "$_id",
+                "total_especimes": 1,
+                "_id": 0
+            }},
+            {"$sort": {"total_especimes": -1}}
+        ]
+        stats = await especime_collection.aggregate(pipeline).to_list(None)
+        return {"estatisticas_por_tipo": stats}
+    except Exception as e:
+        logger.error(f"Erro ao gerar estatísticas de espécimes: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/stats/especime/tipo/plot")
+async def plot_stats_especime_tipo():
+    """
+    Gera um gráfico de barras com a quantidade total de espécimes por tipo.
+    """
+    logger.info("Gerando gráfico de espécimes por tipo")
+    try:
+        # Pipeline do Mongo
+        pipeline = [
+            {"$group": {
+                "_id": "$tipo",
+                "total_especimes": {"$sum": "$quantidade"}
+            }},
+            {"$project": {
+                "tipo": "$_id",
+                "total_especimes": 1,
+                "_id": 0
+            }},
+            {"$sort": {"total_especimes": -1}}
+        ]
+        stats = await especime_collection.aggregate(pipeline).to_list(None)
+
+        # Dados para plotagem
+        tipos = [item["tipo"] for item in stats]
+        totais = [item["total_especimes"] for item in stats]
+
+        # Cria o gráfico
+        plt.figure(figsize=(10, 6))
+        plt.bar(tipos, totais, color='forestgreen')
+        plt.title("Total de Espécimes por Tipo")
+        plt.xlabel("Tipo")
+        plt.ylabel("Quantidade")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        # Salva em um buffer de memória
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        plt.close()
+
+        return StreamingResponse(buf, media_type="image/png")
+    except Exception as e:
+        logger.error(f"Erro ao gerar gráfico de espécimes: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
     
 @router.get("/especimes", response_model=PaginatedEspecimeResponse)
 async def get_especimes(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):

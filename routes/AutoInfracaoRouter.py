@@ -107,7 +107,32 @@ async def upload_auto_infracao_csv(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"Erro interno no upload de autos de infração: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
-
+    
+@router.get("/stats/auto_infracao/top_municipios")
+async def get_top_municipios_auto_infracao():
+    """
+    Top 5 municípios com maior número de autos de infração.
+    """
+    logger.info("Gerando ranking de municípios com mais autos de infração")
+    try:
+        pipeline = [
+            {"$group": {
+                "_id": "$municipio",
+                "total": {"$sum": 1}
+            }},
+            {"$sort": {"total": -1}},
+            {"$limit": 5},
+            {"$project": {
+                "municipio": "$_id",
+                "total": 1,
+                "_id": 0
+            }}
+        ]
+        stats = await auto_infracao_collection.aggregate(pipeline).to_list(None)
+        return {"top_municipios": stats}
+    except Exception as e:
+        logger.error(f"Erro ao gerar ranking de municípios: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/count_auto_infracao")
 async def count_auto_infracao():

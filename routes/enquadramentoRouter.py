@@ -95,6 +95,31 @@ async def upload_enquadramento_csv(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"Erro interno no upload de enquadramentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao processar arquivo: {e}")
+    
+@router.get("/stats/enquadramento/tipo_norma")
+async def get_stats_enquadramento_tipo_norma():
+    """
+    Quantidade de enquadramentos por tipo de norma (Lei, Decreto etc.).
+    """
+    logger.info("Gerando estatísticas de enquadramentos por tipo de norma")
+    try:
+        pipeline = [
+            {"$group": {
+                "_id": "$tp_norma",
+                "total": {"$sum": 1}
+            }},
+            {"$project": {
+                "tipo_norma": "$_id",
+                "total": 1,
+                "_id": 0
+            }},
+            {"$sort": {"total": -1}}
+        ]
+        stats = await enquadramento_collection.aggregate(pipeline).to_list(None)
+        return {"estatisticas_por_tipo_norma": stats}
+    except Exception as e:
+        logger.error(f"Erro ao gerar estatísticas de enquadramento: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/count_enquadramento")
 async def count_enquadramento():

@@ -3,7 +3,7 @@ from routes.biomaRoute import router as bioma_router
 from routes.edificioRouter import router as edificio_router
 from routes.especimeRouter import router as especime_router
 from routes.enquadramentoRouter import router as enquadramento_router
-from routes.autoInfracaoRouter import router as auto_infracao_router
+from routes.AutoInfracaoRouter import router as auto_infracao_router
 from routes.infratorRouter import router as infrator_router
 from database import edificio_IBAMA_collection
 

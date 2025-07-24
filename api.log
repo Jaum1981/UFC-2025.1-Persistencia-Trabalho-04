@@ -43668,3 +43668,11 @@ efeito_saude_publica
 2025-07-23 15:27:05,163 - INFO - Retornando 10 biomas (página 1 de 2483)
 2025-07-23 15:27:28,597 - INFO - Atualizados 785 infratores existentes
 2025-07-23 15:27:28,597 - INFO - Upload concluído: 9098 novos infratores inseridos, 785 atualizações, 0 erros
+2025-07-24 10:45:26,298 - INFO - Gerando relatório de biomas com gráfico
+2025-07-24 10:45:29,068 - INFO - Dados carregados para relatório: 188128 registros
+2025-07-24 10:45:31,409 - INFO - Relatório de biomas gerado com sucesso
+2025-07-24 10:45:42,232 - INFO - Gerando estatísticas de edifícios por município
+2025-07-24 10:45:59,392 - INFO - Gerando estatísticas de enquadramentos por tipo de norma
+2025-07-24 10:46:10,373 - INFO - Gerando gráfico de espécimes por tipo
+2025-07-24 10:46:16,740 - INFO - Gerando estatísticas de espécimes por bioma
+2025-07-24 10:46:46,364 - INFO - Gerando ranking de municípios com mais autos de infração
