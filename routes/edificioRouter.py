@@ -82,6 +82,31 @@ async def upload_edf_csv(file: UploadFile = File(...)):
         for idx, doc in enumerate(docs)
     ]
 
+@router.get("/get_by_nome", response_model=list[Edf_Pub_Civil_IBAMAOut])
+async def get_by_nome(nome: str):
+    """
+    Busca edifícios pelo nome.
+    """
+    logger.info(f"Buscando edifícios por nome: {nome}")
+    try:
+        regex = re.compile(nome, re.IGNORECASE)
+        query = {"nome": regex}
+        docs = await edificio_IBAMA_collection.find(query).to_list(None)
+        
+        if not docs:
+            logger.warning(f"Nenhum edifício encontrado com o nome: {nome}")
+            raise HTTPException(status_code=404, detail="Nenhum edifício encontrado com o nome especificado.")
+        
+        for doc in docs:
+            doc["_id"] = str(doc["_id"])  # Converte _id para string
+        
+        logger.info(f"{len(docs)} edifícios encontrados com o nome: {nome}")
+        return [Edf_Pub_Civil_IBAMAOut(**doc) for doc in docs]
+    
+    except Exception as e:
+        logger.error(f"Erro ao buscar edifícios por nome: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @router.get("/stats/edificios/estado/plot")
 async def plot_edificios_por_estado():
     """

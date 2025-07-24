@@ -188,6 +188,37 @@ async def plot_top_municipios_auto_infracao():
         logger.error(f"Erro ao gerar gráfico de ranking de municípios: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.get("/get_by_municipio", response_model=list[AutoInfracaoOut])
+async def get_auto_infracao_by_municipio(municipio: str = Query(..., description="Nome do município")):
+    logger.info(f"Buscando autos de infração por município: {municipio}")
+    try:
+        documentos = await auto_infracao_collection.find({"municipio": municipio}).to_list(length=None)
+        if not documentos:
+            logger.warning(f"Nenhum auto de infração encontrado para o município: {municipio}")
+            raise HTTPException(status_code=404, detail="Nenhum auto de infração encontrado para o município especificado.")
+        
+        logger.info(f"Encontrados {len(documentos)} autos de infração para o município: {municipio}")
+        return [AutoInfracaoOut(**{**doc, "_id": str(doc["_id"])}) for doc in documentos]
+    except Exception as e:
+        logger.error(f"Erro ao buscar autos de infração por município {municipio}: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+    
+@router.get("/get_by_bioma", response_model=list[AutoInfracaoOut])
+async def get_auto_infracao_by_bioma(bioma: str = Query(..., description="Nome do bioma")):
+    logger.info(f"Buscando autos de infração por bioma: {bioma}")
+    try:
+        documentos = await auto_infracao_collection.find({"bioma": bioma}).to_list(length=None)
+        if not documentos:
+            logger.warning(f"Nenhum auto de infração encontrado para o bioma: {bioma}")
+            raise HTTPException(status_code=404, detail="Nenhum auto de infração encontrado para o bioma especificado.")
+        
+        logger.info(f"Encontrados {len(documentos)} autos de infração para o bioma: {bioma}")
+        return [AutoInfracaoOut(**{**doc, "_id": str(doc["_id"])}) for doc in documentos]
+    except Exception as e:
+        logger.error(f"Erro ao buscar autos de infração por bioma {bioma}: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+    
+
 
 @router.get("/count_auto_infracao")
 async def count_auto_infracao():

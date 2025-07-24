@@ -114,7 +114,37 @@ async def upload_biomas(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"Erro interno no upload de biomas: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Erro interno do servidor: {str(e)}")
+    
+@router.get("get_by_bioma", response_model=List[BiomaOut])
+async def get_biomas_by_bioma(bioma: Optional[str] = Query(None, description="Filtrar por nome do bioma")):
+    """
+    Buscar biomas por nome.
+    Se nenhum bioma for fornecido, retorna todos os biomas.
+    """
+    logger.info(f"Buscando biomas por nome: {bioma}")
+    try:
+        query = {}
+        if bioma:
+            query["bioma"] = {"$regex": bioma, "$options": "i"}
+            logger.info(f"Aplicando filtro por bioma: {bioma}")
 
+        biomas = await bioma_collection.find(query).to_list(length=None)
+
+        if not biomas:
+            logger.warning("Nenhum bioma encontrado com o filtro fornecido")
+            raise HTTPException(status_code=404, detail="Nenhum bioma encontrado")
+
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
+
+        items = [BiomaOut(**serialize(doc)) for doc in biomas]
+        logger.info(f"Total de biomas encontrados: {len(items)}")
+        return items
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar biomas: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
 @router.get("/biomas", response_model=PaginatedBiomaResponse)
 async def get_biomas(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):
