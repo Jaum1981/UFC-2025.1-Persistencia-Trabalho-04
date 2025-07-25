@@ -2,7 +2,7 @@ import traceback
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
 from fastapi.responses import StreamingResponse
-from database import auto_infracao_collection, especime_collection, enquadramento_collection
+from database import auto_infracao_collection, especime_collection, enquadramento_collection, bioma_collection
 import matplotlib.pyplot as plt
 import pandas as pd
 import io
@@ -16,6 +16,10 @@ from typing import Optional, List
 from datetime import datetime
 from database import auto_infracao_collection, bioma_collection
 from logs.logger import logger
+
+from models.auto_infracao import AutoInfracaoOut
+from models.bioma import BiomaOut
+from models.especime import EspecimeOut
 
 router = APIRouter()
 
@@ -258,18 +262,18 @@ async def buscar_auto_completo(seq_auto_infracao: int) -> Dict[str, Any]:
                 }
             }
         ]
-        
+
         resultado = await auto_infracao_collection.aggregate(pipeline).to_list(length=1)
         if not resultado:
             raise HTTPException(status_code=404, detail="Auto de infração não encontrado")
-        
+
         auto = resultado[0]
         auto["_id"] = str(auto["_id"])
         for item in auto["enquadramentos"]:
             item["_id"] = str(item["_id"])
         for item in auto["especimes"]:
             item["_id"] = str(item["_id"])
-        
+
         return auto
     except Exception as e:
         logger.error("Erro completo:\n" + traceback.format_exc())
@@ -475,3 +479,51 @@ async def stats_infracoes_bioma(
     except Exception as e:
         logger.error(f"Erro nas estatísticas por bioma: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Erro ao processar estatísticas por bioma.")
+
+@router.get("/auto-infracao/biomas/especimes")
+async def busca_especimes_por_bioma_em_auto_infracao(
+        data_inicio: datetime = Query(..., description="Data inicial no formato YYYY-MM-DD"),
+        data_fim: datetime = Query(..., description="Data final no formato YYYY-MM-DD"),
+        bioma: str = Query(..., description="Nome do bioma filtrado"),
+        skip:int = Query(1, ge=0, le=10),
+        limit: int = Query(100, description="Número máximo", ge=1, len=1000)):
+    try:
+        logger.info(f"Buscando nomes populares pela bioma: {bioma}")
+
+        filter = {
+            "dat_hora_auto_infracao": {
+                "$gte": data_inicio,
+                "$lte": data_fim
+            }
+        }
+
+        if bioma:
+            filter["bioma"] = {"$regex": bioma, "$options": "i"}
+
+        infra_docs = await auto_infracao_collection.find(filter).skip(skip).limit(limit).to_list(length=None)
+
+        if not infra_docs:
+            logger.warning(f"Nenhuma auto infração encontrada no bioma: {bioma}")
+            raise HTTPException(status_code=404, detail="Nenhuma auto infração encontrada")
+
+        results = []
+        for infra in infra_docs:
+            infra_model = AutoInfracaoOut(**infra)
+
+            especimes = await especime_collection.find({
+                "seq_auto_infracao": infra_model.seq_auto_infracao
+            }).to_list(length=None)
+
+            especimes_models = [EspecimeOut(**e) for e in especimes]
+
+            results.append({
+                "auto_infracao": infra_model.dict(),
+                "especimes": [e.dict() for e in especimes_models]
+            })
+
+        logger.info(f"Encontradas {len(results)} autuações com espécimes")
+        return results
+
+    except HTTPException as e:
+        logger.error(f"Erro ao buscar nomes populares das espécimes: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro interno no servidor: {e}")
