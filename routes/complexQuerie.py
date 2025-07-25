@@ -308,17 +308,17 @@ async def listagem_completa_auto(
                 date_range["$gte"] = f"{start_date}T00:00:00"
             if end_date:
                 date_range["$lte"] = f"{end_date}T23:59:59"
-            match_stage["DAT_HORA_AUTO_INFRACAO"] = date_range
+            match_stage["dat_hora_auto_infracao"] = date_range
             logger.debug(f"Filtro de data: {date_range!r}")
         if municipio:
-            match_stage["MUNICIPIO"] = municipio
+            match_stage["municipio"] = municipio
             logger.debug(f"Filtro de município: {municipio!r}")
 
         # 2) Ordenação e paginação
         direction = 1 if order == "asc" else -1
         skip = (page - 1) * limit
-        # Normaliza sort_by para o nome real do campo no MongoDB (maiúsculas)
-        sort_field = sort_by.upper()
+        # Normaliza sort_by para o nome real do campo no MongoDB (minúsculas)
+        sort_field = sort_by.lower()
         logger.debug(f"Sort: {sort_field} {order}, skip={skip}, limit={limit}")
 
         # 3) Pipeline de agregação com lookups limitados usando sub-pipeline
@@ -334,11 +334,11 @@ async def listagem_completa_auto(
             # lookup limitado para enquadramentos
             {"$lookup": {
                 "from": "enquadramento",
-                "let": {"auto_id": "$SEQ_AUTO_INFRACAO"},
+                "let": {"auto_id": "$seq_auto_infracao"},
                 "pipeline": [
-                    {"$match": {"$expr": {"$eq": ["$SEQ_AUTO_INFRACAO", "$$auto_id"]}}},
+                    {"$match": {"$expr": {"$eq": ["$seq_auto_infracao", "$$auto_id"]}}},
                     {"$limit": 100},
-                    {"$project": {"_id": 0, "SQ_ENQUADRAMENTO": 1, "TP_NORMA": 1, "NU_NORMA": 1}}
+                    {"$project": {"_id": 0, "sq_enquadramento": 1, "tp_norma": 1, "nu_norma": 1}}
                 ],
                 "as": "enquadramentos"
             }},
@@ -346,11 +346,11 @@ async def listagem_completa_auto(
             # lookup limitado para espécies
             {"$lookup": {
                 "from": "especime",
-                "let": {"auto_id": "$SEQ_AUTO_INFRACAO"},
+                "let": {"auto_id": "$seq_auto_infracao"},
                 "pipeline": [
-                    {"$match": {"$expr": {"$eq": ["$SEQ_AUTO_INFRACAO", "$$auto_id"]}}},
+                    {"$match": {"$expr": {"$eq": ["$seq_auto_infracao", "$$auto_id"]}}},
                     {"$limit": 100},
-                    {"$project": {"_id": 0, "SEQ_ESPECIME": 1, "QUANTIDADE": 1, "NOME_POPULAR": 1}}
+                    {"$project": {"_id": 0, "seq_especime": 1, "quantidade": 1, "nome_popular": 1}}
                 ],
                 "as": "especies"
             }},
@@ -358,10 +358,10 @@ async def listagem_completa_auto(
             # projeta campos principais
             {"$project": {
                 "_id": 0,
-                "SEQ_AUTO_INFRACAO": 1,
-                "DAT_HORA_AUTO_INFRACAO": 1,
-                "MUNICIPIO": 1,
-                "VAL_AUTO_INFRACAO": 1,
+                "seq_auto_infracao": 1,
+                "dat_hora_auto_infracao": 1,
+                "municipio": 1,
+                "val_auto_infracao": 1,
                 "enquadramentos": 1,
                 "especies": 1
             }}
@@ -379,7 +379,20 @@ async def listagem_completa_auto(
         results = await cursor.to_list(length=limit)
         logger.info(f"Retornados {len(results)} registros na página {page}")
 
-        # 6) Retorna resposta
+        # 6) Converte objetos datetime para string
+        def convert_datetime_to_string(obj):
+            if isinstance(obj, dict):
+                return {key: convert_datetime_to_string(value) for key, value in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_datetime_to_string(item) for item in obj]
+            elif isinstance(obj, datetime):
+                return obj.isoformat()
+            else:
+                return obj
+
+        results = convert_datetime_to_string(results)
+
+        # 7) Retorna resposta
         return JSONResponse({
             "meta": {"page": page, "limit": limit, "total": total},
             "data": results
@@ -410,14 +423,14 @@ async def stats_infracoes_bioma(
         logger.info("Iniciando agregação de estatísticas por bioma")
 
         # 1) Filtro de data e bioma (obrigatório)
-        match_stage: dict = {"DS_BIOMAS_ATINGIDOS": bioma}  # usa o campo correto do auto_infracao
+        match_stage: dict = {"ds_biomas_atingidos": bioma}  # usa o campo correto do auto_infracao
         if start_date or end_date:
             date_range: dict = {}
             if start_date:
                 date_range["$gte"] = f"{start_date}T00:00:00"
             if end_date:
                 date_range["$lte"] = f"{end_date}T23:59:59"
-            match_stage["DAT_HORA_AUTO_INFRACAO"] = date_range
+            match_stage["dat_hora_auto_infracao"] = date_range
             logger.debug(f"Filtro de data: {date_range}")
         logger.debug(f"Filtro de bioma: {bioma}")
 
@@ -429,18 +442,18 @@ async def stats_infracoes_bioma(
         pipeline: list[dict] = [
             {"$match": match_stage},
             {"$group": {
-                "_id": "$DS_BIOMAS_ATINGIDOS",  # agrupa pelo campo correto
+                "_id": "$ds_biomas_atingidos",  # agrupa pelo campo correto
                 "total_infracoes": {"$sum": 1},
-                "media_valor": {"$avg": {"$toDouble": {"$replaceAll": {"input": "$VAL_AUTO_INFRACAO", "find": ",", "replacement": "."}}}}
+                "media_valor": {"$avg": {"$toDouble": {"$replaceAll": {"input": "$val_auto_infracao", "find": ",", "replacement": "."}}}}
             }},
             {"$lookup": {
                 "from": "bioma",
                 "let": {"nome_bioma": "$_id"},
                 "pipeline": [
-                    {"$match": {"$expr": {"$eq": ["$BIOMA", "$$nome_bioma"]}}},
-                    {"$sort": {"ULTIMA_ATUALIZACAO_RELATORIO": -1}},
+                    {"$match": {"$expr": {"$eq": ["$bioma", "$$nome_bioma"]}}},
+                    {"$sort": {"ultima_atualizacao_relatorio": -1}},
                     {"$limit": 1},
-                    {"$project": {"_id": 0, "ultima_atualizacao": "$ULTIMA_ATUALIZACAO_RELATORIO"}}
+                    {"$project": {"_id": 0, "ultima_atualizacao": "$ultima_atualizacao_relatorio"}}
                 ],
                 "as": "bioma_info"
             }},
@@ -460,7 +473,7 @@ async def stats_infracoes_bioma(
         # 4) Total de registros para paginação
         count_pipeline: list[dict] = [
             {"$match": match_stage},
-            {"$group": {"_id": "$BIOMA"}},
+            {"$group": {"_id": "$bioma"}},
             {"$count": "total"}
         ]
         count_result = await auto_infracao_collection.aggregate(count_pipeline).to_list(1)
@@ -470,6 +483,19 @@ async def stats_infracoes_bioma(
         cursor = auto_infracao_collection.aggregate(pipeline, allowDiskUse=True)
         results = await cursor.to_list(length=limit)
         logger.info(f"Consulta de estatísticas por bioma retornou {len(results)} registros")
+
+        # 6) Converte objetos datetime para string
+        def convert_datetime_to_string(obj):
+            if isinstance(obj, dict):
+                return {key: convert_datetime_to_string(value) for key, value in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_datetime_to_string(item) for item in obj]
+            elif isinstance(obj, datetime):
+                return obj.isoformat()
+            else:
+                return obj
+
+        results = convert_datetime_to_string(results)
 
         return JSONResponse({
             "meta": {"page": page, "limit": limit, "total": total},
