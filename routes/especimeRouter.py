@@ -239,6 +239,38 @@ async def get_especimes_by_quantity_interval(piso: int, teto: int, page: int = Q
         logger.error(f"Erro ao buscar espécimes: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
+@router.get("/especimes/tipo")
+async def get_especimes_by_tipo(tipo: str, page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    logger.info(f"Buscando espécimes pelo tipo: {tipo}")
+    try:
+        # Filtro para buscar espécimes com o tipo específico (case-insensitive)
+        filter = {"tipo": {"$regex": f"^{tipo}$", "$options": "i"}}
+        
+        # Conta o total de documentos que atendem ao filtro
+        total = await especime_collection.count_documents(filter)
+        
+        # Busca os espécimes com paginação
+        especimes = await especime_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
+
+        items = [EspecimeOut(**serialize(doc)) for doc in especimes]
+
+        logger.info(f"Retornando {len(items)} espécimes do tipo '{tipo}' de um total de {total}")
+        return {
+            "total": total,
+            "page": page,
+            "page_size": page_size,
+            "tipo_filtrado": tipo,
+            "data": items
+        }
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar espécimes por tipo '{tipo}': {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
 @router.get("/count_especime")
 async def count_especime():
     logger.info("Contando total de espécimes na coleção")
@@ -250,29 +282,6 @@ async def count_especime():
         logger.error(f"Erro ao contar espécimes: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao contar documentos: {e}")
 
-@router.get("/get_by_tipo", response_model=list[EspecimeOut])
-async def get_especime_by_tipo(tipo: str):
-    logger.info(f"Buscando espécimes pelo tipo: {tipo}")
-    try:
-        if not tipo:
-            logger.warning("Tipo não fornecido")
-            raise HTTPException(status_code=400, detail="Tipo não fornecido.")
-        
-        especimes = await especime_collection.find({"tipo": tipo}).to_list(length=None)
-        if not especimes:
-            logger.warning(f"Nenhum espécime encontrado para o tipo: {tipo}")
-            raise HTTPException(status_code=404, detail="Nenhum espécime encontrado para o tipo especificado.")
-        
-        for especime in especimes:
-            especime["_id"] = str(especime["_id"])  # Converte _id para string
-        
-        logger.info(f"{len(especimes)} espécimes encontrados para o tipo: {tipo}")
-        return [EspecimeOut(**especime) for especime in especimes]
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Erro ao buscar espécimes por tipo {tipo}: {e}")
-        raise HTTPException(status_code=500, detail=f"Erro ao buscar especimes: {e}")
     
 @router.get("/especime/{especime_id}", response_model=EspecimeOut)
 async def get_especime(especime_id: str):
@@ -295,3 +304,4 @@ async def get_especime(especime_id: str):
     except Exception as e:
         logger.error(f"Erro ao buscar espécime por ID {especime_id}: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar especime: {e}")
+
