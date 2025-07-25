@@ -5,6 +5,7 @@ from routes.especimeRouter import router as especime_router
 from routes.enquadramentoRouter import router as enquadramento_router
 from routes.AutoInfracaoRouter import router as auto_infracao_router
 from routes.infratorRouter import router as infrator_router
+from routes.complexQuerie import router as complex_queries_router
 from database import edificio_IBAMA_collection
 
 app = FastAPI(
@@ -27,3 +28,4 @@ app.include_router(especime_router)
 app.include_router(enquadramento_router)
 app.include_router(auto_infracao_router)
 app.include_router(infrator_router)
+app.include_router(complex_queries_router, prefix="/consultas-complexas", tags=["Consultas Complexas"])
