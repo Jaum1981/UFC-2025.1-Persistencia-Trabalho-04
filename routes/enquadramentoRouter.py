@@ -147,52 +147,68 @@ async def get_enquadramentos(page: int = 1, page_size: int = 10):
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
 
 
-@router.get("/enquadramento/norma_and_adm", response_model=List[EnquadramentoOut])
+@router.get("/enquadramento/norma_and_adm")
 async def get_enquadramento_by_norma_and_adm(tp_norma: str, administrativo: str, page: int = 1, page_size: int = 10):
     logger.info(f"Buscando enquadramentos por tipo de norma e administrativo: {tp_norma}, {administrativo}")
     try:
-
         filter = {
             "tp_norma": tp_norma,
             "administrativo": administrativo
         }
 
+        # Conta o total de documentos que atendem ao filtro
+        total = await enquadramento_collection.count_documents(filter)
+        
+        # Busca os documentos com paginação
         docs = await enquadramento_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
 
-        if not docs:
-            logger.warning(f"Enquadramentos não encontrados")
-            raise HTTPException(status_code=404, detail="Enquadramentos não encontrados.")
-
-        results = []
-        for doc in docs:
+        def serialize(doc):
             doc["_id"] = str(doc["_id"])
-            results.append(EnquadramentoOut(**doc))
+            return doc
 
-        logger.info(f"Enquadramentos encontrados")
-        return results
+        items = [EnquadramentoOut(**serialize(doc)) for doc in docs]
+
+        logger.info(f"Retornando {len(items)} enquadramentos de um total de {total}")
+        return {
+            "total": total,
+            "page": page,
+            "page_size": page_size,
+            "tp_norma_filtrado": tp_norma,
+            "administrativo_filtrado": administrativo,
+            "data": items
+        }
     except Exception as e:
-        logger.error(f"Erro ao interno ao buscar enquadramentos")
+        logger.error(f"Erro interno ao buscar enquadramentos por norma e administrativo: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")
 
-@router.get("/enquadramento/nu_norma", response_model=List[EnquadramentoOut])
+@router.get("/enquadramento/nu_norma")
 async def get_enquadramento_by_nu_norma(nu_norma: int, page: int = 1, page_size: int = 10):
     logger.info(f"Buscando enquadramentos pelo número da norma: {nu_norma}")
     try:
-        docs = await enquadramento_collection.find({"nu_norma": nu_norma}).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+        filter = {"nu_norma": nu_norma}
+        
+        # Conta o total de documentos que atendem ao filtro
+        total = await enquadramento_collection.count_documents(filter)
+        
+        # Busca os documentos com paginação
+        docs = await enquadramento_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
 
-        if not docs:
-            logger.warning(f"Enquadramentos não encontrados")
-            raise HTTPException(status_code=404, detail="Enquadramentos não encontrados.")
-
-        results = []
-        for doc in docs:
+        def serialize(doc):
             doc["_id"] = str(doc["_id"])
-            results.append(EnquadramentoOut(**doc))
+            return doc
 
-        logger.info(f"Enquadramentos encontrados")
-        return results
+        items = [EnquadramentoOut(**serialize(doc)) for doc in docs]
+
+        logger.info(f"Retornando {len(items)} enquadramentos de um total de {total}")
+        return {
+            "total": total,
+            "page": page,
+            "page_size": page_size,
+            "nu_norma_filtrado": nu_norma,
+            "data": items
+        }
     except Exception as e:
-        logger.error(f"Erro ao interno ao buscar enquadramentos")
+        logger.error(f"Erro interno ao buscar enquadramentos por número da norma: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")
 
 @router.get("/enquadramento/{enquadramento_id}", response_model=EnquadramentoOut)
