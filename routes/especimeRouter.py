@@ -1,3 +1,5 @@
+from typing import Optional
+
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
 from models.especime import EspecimeCreate, EspecimeOut, PaginatedEspecimeResponse
@@ -158,7 +160,7 @@ async def plot_stats_especime_tipo():
 
     
 @router.get("/especimes", response_model=PaginatedEspecimeResponse)
-async def get_especimes(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+async def get_especimes(page: int = 1, page_size: int = 10):
     logger.info(f"Buscando espécimes - Página: {page}, Tamanho: {page_size}")
     try:
         skip = (page - 1) * page_size
@@ -178,6 +180,60 @@ async def get_especimes(page: int = Query(1, ge=1), page_size: int = Query(10, g
             size=page_size,
             items=items
         )
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar espécimes: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
+@router.get("/especimes/popular_name")
+async def get_especimes_by_popular_name(page: int = 1, page_size: int = 10, texto: Optional[str] = Query(None)):
+    logger.info(f"Buscando espécimes pelo nome")
+    try:
+
+        filter = {}
+
+        if texto:
+            filter = {"nome_popular": {"$regex": texto, "$options": "i"}}
+
+        total = await especime_collection.count_documents(filter)
+        especimes = await especime_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
+
+        items = [EspecimeOut(**serialize(doc)) for doc in especimes]
+
+        logger.info(f"Retornando {len(items)} espécimes de um total de {total}")
+        return {
+            "total": total,
+            "data": items
+        }
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar espécimes: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
+@router.get("/especimes/quantity_interval")
+async def get_especimes_by_quantity_interval(piso: int, teto: int, page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    logger.info(f"Buscando espécimes pelo intervalo de quantidade")
+    try:
+
+        filter = {"quantidade": {"$gte": piso, "$lte": teto}}
+
+        especimes = await especime_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+
+        def serialize(doc):
+            doc["_id"] = str(doc["_id"])
+            return doc
+
+        items = [EspecimeOut(**serialize(doc)) for doc in especimes]
+
+        logger.info(f"Retornando {len(items)} espécimes de um total de {len(especimes)}")
+        return {
+            "total": len(especimes),
+            "data": items
+        }
 
     except Exception as e:
         logger.error(f"Erro ao buscar espécimes: {e}")

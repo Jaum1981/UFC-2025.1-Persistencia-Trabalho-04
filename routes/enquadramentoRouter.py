@@ -7,6 +7,7 @@ import io
 from datetime import datetime
 import math
 from logs.logger import logger
+from typing import List
 
 router = APIRouter(prefix="/enquadramento", tags=["Enquadramento"])
 
@@ -144,6 +145,55 @@ async def get_enquadramentos(page: int = 1, page_size: int = 10):
     except Exception as e:
         logger.error(f"Erro ao buscar enquadramentos: {e}")
         raise HTTPException(status_code=500, detail=f"Erro ao buscar documentos: {e}")
+
+
+@router.get("/enquadramento/norma_and_adm", response_model=List[EnquadramentoOut])
+async def get_enquadramento_by_norma_and_adm(tp_norma: str, administrativo: str, page: int = 1, page_size: int = 10):
+    logger.info(f"Buscando enquadramentos por tipo de norma e administrativo: {tp_norma}, {administrativo}")
+    try:
+
+        filter = {
+            "tp_norma": tp_norma,
+            "administrativo": administrativo
+        }
+
+        docs = await enquadramento_collection.find(filter).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+
+        if not docs:
+            logger.warning(f"Enquadramentos não encontrados")
+            raise HTTPException(status_code=404, detail="Enquadramentos não encontrados.")
+
+        results = []
+        for doc in docs:
+            doc["_id"] = str(doc["_id"])
+            results.append(EnquadramentoOut(**doc))
+
+        logger.info(f"Enquadramentos encontrados")
+        return results
+    except Exception as e:
+        logger.error(f"Erro ao interno ao buscar enquadramentos")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")
+
+@router.get("/enquadramento/nu_norma", response_model=List[EnquadramentoOut])
+async def get_enquadramento_by_nu_norma(nu_norma: int, page: int = 1, page_size: int = 10):
+    logger.info(f"Buscando enquadramentos pelo número da norma: {nu_norma}")
+    try:
+        docs = await enquadramento_collection.find({"nu_norma": nu_norma}).skip((page - 1) * page_size).limit(page_size).to_list(length=None)
+
+        if not docs:
+            logger.warning(f"Enquadramentos não encontrados")
+            raise HTTPException(status_code=404, detail="Enquadramentos não encontrados.")
+
+        results = []
+        for doc in docs:
+            doc["_id"] = str(doc["_id"])
+            results.append(EnquadramentoOut(**doc))
+
+        logger.info(f"Enquadramentos encontrados")
+        return results
+    except Exception as e:
+        logger.error(f"Erro ao interno ao buscar enquadramentos")
+        raise HTTPException(status_code=500, detail=f"Erro ao buscar documento: {e}")
 
 @router.get("/enquadramento/{enquadramento_id}", response_model=EnquadramentoOut)
 async def get_enquadramento(enquadramento_id: str):
