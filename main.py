@@ -6,7 +6,7 @@ from routes.enquadramentoRouter import router as enquadramento_router
 from routes.AutoInfracaoRouter import router as auto_infracao_router
 from routes.infratorRouter import router as infrator_router
 from routes.complexQuerie import router as complex_queries_router
-from database import edificio_IBAMA_collection
+from database import edificio_IBAMA_collection, auto_infracao_collection, enquadramento_collection, especime_collection
 
 app = FastAPI(
     title="IBAMA API",
@@ -39,9 +39,6 @@ async def init_indexes():
     )
     await especime_collection.create_index(
         [("seq_auto_infracao", 1)], name="idx_esp_seq_auto"
-    )
-    await infrator_collection.create_index(
-        [("num_auto_infracao", 1)], name="idx_infrator_num_auto"
     )
 
 app.include_router(bioma_router)
