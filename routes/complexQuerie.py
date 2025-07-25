@@ -1,3 +1,4 @@
+import traceback
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
 from fastapi.responses import StreamingResponse
@@ -220,3 +221,50 @@ async def buscar_auto_infracao_agregacao(seq_auto_infracao: int) -> Dict[str, An
             detail=f"Erro interno do servidor: {str(e)}"
         )
 
+@router.get("/auto-infracao-completo/{seq_auto_infracao}")
+async def buscar_auto_completo(seq_auto_infracao: int) -> Dict[str, Any]:
+    """
+    Retorna um auto de infração com seus enquadramentos e espécimes relacionados.
+    """
+    try:
+        pipeline = [
+            {"$match": {"seq_auto_infracao": seq_auto_infracao}},
+            {
+                "$lookup": {
+                    "from": "enquadramento",
+                    "localField": "seq_auto_infracao",
+                    "foreignField": "seq_auto_infracao",
+                    "as": "enquadramentos"
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "especime",
+                    "localField": "seq_auto_infracao",
+                    "foreignField": "seq_auto_infracao",
+                    "as": "especimes"
+                }
+            },
+            {
+                "$addFields": {
+                    "total_enquadramentos": {"$size": "$enquadramentos"},
+                    "total_especimes": {"$size": "$especimes"}
+                }
+            }
+        ]
+        
+        resultado = await auto_infracao_collection.aggregate(pipeline).to_list(length=1)
+        if not resultado:
+            raise HTTPException(status_code=404, detail="Auto de infração não encontrado")
+        
+        auto = resultado[0]
+        auto["_id"] = str(auto["_id"])
+        for item in auto["enquadramentos"]:
+            item["_id"] = str(item["_id"])
+        for item in auto["especimes"]:
+            item["_id"] = str(item["_id"])
+        
+        return auto
+    except Exception as e:
+        logger.error("Erro completo:\n" + traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
