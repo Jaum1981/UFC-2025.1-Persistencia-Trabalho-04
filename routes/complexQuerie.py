@@ -2,7 +2,7 @@ import traceback
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Query, UploadFile, File
 from fastapi.responses import StreamingResponse
-from database import auto_infracao_collection, especime_collection, enquadramento_collection
+from database import auto_infracao_collection, especime_collection, enquadramento_collection, bioma_collection
 import matplotlib.pyplot as plt
 import pandas as pd
 import io
@@ -10,6 +10,16 @@ from datetime import datetime, timedelta
 import math
 from logs.logger import logger
 from typing import List, Dict, Any
+from fastapi import APIRouter, Query, HTTPException
+from fastapi.responses import JSONResponse
+from typing import Optional, List
+from datetime import datetime
+from database import auto_infracao_collection, bioma_collection
+from logs.logger import logger
+
+from models.auto_infracao import AutoInfracaoOut
+from models.bioma import BiomaOut
+from models.especime import EspecimeOut
 
 router = APIRouter()
 
@@ -252,19 +262,294 @@ async def buscar_auto_completo(seq_auto_infracao: int) -> Dict[str, Any]:
                 }
             }
         ]
-        
+
         resultado = await auto_infracao_collection.aggregate(pipeline).to_list(length=1)
         if not resultado:
             raise HTTPException(status_code=404, detail="Auto de infração não encontrado")
-        
+
         auto = resultado[0]
         auto["_id"] = str(auto["_id"])
         for item in auto["enquadramentos"]:
             item["_id"] = str(item["_id"])
         for item in auto["especimes"]:
             item["_id"] = str(item["_id"])
-        
+
         return auto
     except Exception as e:
         logger.error("Erro completo:\n" + traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+
+@router.get("/auto_infracao/detailed")
+async def listagem_completa_auto(
+    start_date: Optional[str] = Query(None, description="Data inicial ISO (YYYY-MM-DD)"),
+    end_date:   Optional[str] = Query(None, description="Data final ISO (YYYY-MM-DD)"),
+    municipio:  Optional[str] = Query(None, description="Busca por nome do município"),
+    sort_by:    str = Query(
+                    "dat_hora_auto_infracao",
+                    regex="^(dat_hora_auto_infracao|val_auto_infracao)$",
+                    description="Campo para ordenação: 'dat_hora_auto_infracao' ou 'val_auto_infracao'"
+                 ),
+    order:      str = Query("desc", regex="^(asc|desc)$"),
+    page:       int = Query(1, ge=1),
+    limit:      int = Query(10, ge=1, le=100)
+):
+    """
+    Retorna autos de infração completos, com enquadramentos e espécies,
+    aplicando filtros, ordenação e paginação.
+    """
+    try:
+        logger.info("Iniciando listagem completa de autos de infração")
+
+        # 1) Monta filtros
+        match_stage: dict = {}
+        if start_date or end_date:
+            date_range: dict = {}
+            if start_date:
+                date_range["$gte"] = f"{start_date}T00:00:00"
+            if end_date:
+                date_range["$lte"] = f"{end_date}T23:59:59"
+            match_stage["dat_hora_auto_infracao"] = date_range
+            logger.debug(f"Filtro de data: {date_range!r}")
+        if municipio:
+            match_stage["municipio"] = municipio
+            logger.debug(f"Filtro de município: {municipio!r}")
+
+        # 2) Ordenação e paginação
+        direction = 1 if order == "asc" else -1
+        skip = (page - 1) * limit
+        # Normaliza sort_by para o nome real do campo no MongoDB (minúsculas)
+        sort_field = sort_by.lower()
+        logger.debug(f"Sort: {sort_field} {order}, skip={skip}, limit={limit}")
+
+        # 3) Pipeline de agregação com lookups limitados usando sub-pipeline
+        pipeline: list[dict] = []
+        if match_stage:
+            pipeline.append({"$match": match_stage})
+
+        pipeline += [
+            {"$sort": {sort_field: direction}},
+            {"$skip": skip},
+            {"$limit": limit},
+
+            # lookup limitado para enquadramentos
+            {"$lookup": {
+                "from": "enquadramento",
+                "let": {"auto_id": "$seq_auto_infracao"},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$seq_auto_infracao", "$$auto_id"]}}},
+                    {"$limit": 100},
+                    {"$project": {"_id": 0, "sq_enquadramento": 1, "tp_norma": 1, "nu_norma": 1}}
+                ],
+                "as": "enquadramentos"
+            }},
+
+            # lookup limitado para espécies
+            {"$lookup": {
+                "from": "especime",
+                "let": {"auto_id": "$seq_auto_infracao"},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$seq_auto_infracao", "$$auto_id"]}}},
+                    {"$limit": 100},
+                    {"$project": {"_id": 0, "seq_especime": 1, "quantidade": 1, "nome_popular": 1}}
+                ],
+                "as": "especies"
+            }},
+
+            # projeta campos principais
+            {"$project": {
+                "_id": 0,
+                "seq_auto_infracao": 1,
+                "dat_hora_auto_infracao": 1,
+                "municipio": 1,
+                "val_auto_infracao": 1,
+                "enquadramentos": 1,
+                "especies": 1
+            }}
+        ]
+        logger.debug(f"Pipeline montado com {len(pipeline)} estágios")
+
+        # 4) Conta total de documentos que casam com filtros
+        count_pipeline = ([{"$match": match_stage}] if match_stage else []) + [{"$count": "total"}]
+        count_result = await auto_infracao_collection.aggregate(count_pipeline).to_list(1)
+        total = count_result[0]["total"] if count_result else 0
+        logger.info(f"Total de autos compatíveis: {total}")
+
+        # 5) Executa agregação com uso de disco
+        cursor = auto_infracao_collection.aggregate(pipeline, allowDiskUse=True)
+        results = await cursor.to_list(length=limit)
+        logger.info(f"Retornados {len(results)} registros na página {page}")
+
+        # 6) Converte objetos datetime para string
+        def convert_datetime_to_string(obj):
+            if isinstance(obj, dict):
+                return {key: convert_datetime_to_string(value) for key, value in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_datetime_to_string(item) for item in obj]
+            elif isinstance(obj, datetime):
+                return obj.isoformat()
+            else:
+                return obj
+
+        results = convert_datetime_to_string(results)
+
+        # 7) Retorna resposta
+        return JSONResponse({
+            "meta": {"page": page, "limit": limit, "total": total},
+            "data": results
+        })
+
+    except Exception as e:
+        logger.error(f"Erro na listagem completa de autos de infração: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Erro ao executar consulta completa de autos de infração.")
+
+@router.get("/infractions-by-biome")
+async def stats_infracoes_bioma(
+    start_date: Optional[str] = Query(None, description="Data inicial ISO (YYYY-MM-DD)"),
+    end_date:   Optional[str] = Query(None, description="Data final ISO (YYYY-MM-DD)"),
+    bioma:      str = Query(..., description="Nome do bioma para filtrar"),
+    sort_by:    str = Query(
+                    "total_infracoes",
+                    regex="^(total_infracoes|media_valor)$",
+                    description="Campo para ordenação: 'total_infracoes' ou 'media_valor'"
+                 ),
+    order:      str = Query("desc", regex="^(asc|desc)$"),
+    page:       int = Query(1, ge=1),
+    limit:      int = Query(10, ge=1, le=100)
+):
+    """
+    Estatísticas de autos de infração para um único bioma: total, média de valor e data da última atualização.
+    """
+    try:
+        logger.info("Iniciando agregação de estatísticas por bioma")
+
+        # 1) Filtro de data e bioma (obrigatório)
+        match_stage: dict = {"ds_biomas_atingidos": bioma}  # usa o campo correto do auto_infracao
+        if start_date or end_date:
+            date_range: dict = {}
+            if start_date:
+                date_range["$gte"] = f"{start_date}T00:00:00"
+            if end_date:
+                date_range["$lte"] = f"{end_date}T23:59:59"
+            match_stage["dat_hora_auto_infracao"] = date_range
+            logger.debug(f"Filtro de data: {date_range}")
+        logger.debug(f"Filtro de bioma: {bioma}")
+
+        # 2) Ordenação e paginação
+        sort_dir = 1 if order == "asc" else -1
+        skip = (page - 1) * limit
+
+        # 3) Pipeline principal
+        pipeline: list[dict] = [
+            {"$match": match_stage},
+            {"$group": {
+                "_id": "$ds_biomas_atingidos",  # agrupa pelo campo correto
+                "total_infracoes": {"$sum": 1},
+                "media_valor": {"$avg": {"$toDouble": {"$replaceAll": {"input": "$val_auto_infracao", "find": ",", "replacement": "."}}}}
+            }},
+            {"$lookup": {
+                "from": "bioma",
+                "let": {"nome_bioma": "$_id"},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$bioma", "$$nome_bioma"]}}},
+                    {"$sort": {"ultima_atualizacao_relatorio": -1}},
+                    {"$limit": 1},
+                    {"$project": {"_id": 0, "ultima_atualizacao": "$ultima_atualizacao_relatorio"}}
+                ],
+                "as": "bioma_info"
+            }},
+            {"$project": {
+                "_id": 0,
+                "bioma": "$_id",
+                "total_infracoes": 1,
+                "media_valor": 1,
+                "ultima_atualizacao": {"$arrayElemAt": ["$bioma_info.ultima_atualizacao", 0]}
+            }},
+            {"$sort": {sort_by: sort_dir}},
+            {"$skip": skip},
+            {"$limit": limit}
+        ]
+        logger.debug(f"Pipeline: {pipeline}")
+
+        # 4) Total de registros para paginação
+        count_pipeline: list[dict] = [
+            {"$match": match_stage},
+            {"$group": {"_id": "$bioma"}},
+            {"$count": "total"}
+        ]
+        count_result = await auto_infracao_collection.aggregate(count_pipeline).to_list(1)
+        total = count_result[0]["total"] if count_result else 0
+
+        # 5) Executa agregação
+        cursor = auto_infracao_collection.aggregate(pipeline, allowDiskUse=True)
+        results = await cursor.to_list(length=limit)
+        logger.info(f"Consulta de estatísticas por bioma retornou {len(results)} registros")
+
+        # 6) Converte objetos datetime para string
+        def convert_datetime_to_string(obj):
+            if isinstance(obj, dict):
+                return {key: convert_datetime_to_string(value) for key, value in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_datetime_to_string(item) for item in obj]
+            elif isinstance(obj, datetime):
+                return obj.isoformat()
+            else:
+                return obj
+
+        results = convert_datetime_to_string(results)
+
+        return JSONResponse({
+            "meta": {"page": page, "limit": limit, "total": total},
+            "data": results
+        })
+
+    except Exception as e:
+        logger.error(f"Erro nas estatísticas por bioma: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Erro ao processar estatísticas por bioma.")
+
+@router.get("/auto-infracao/biomas/especimes")
+async def busca_especimes_por_bioma_em_auto_infracao(
+        data_inicio: datetime = Query(..., description="Data inicial no formato YYYY-MM-DD"),
+        data_fim: datetime = Query(..., description="Data final no formato YYYY-MM-DD"),
+        bioma: str = Query(..., description="Nome do bioma filtrado"),
+        skip:int = Query(1, ge=0, le=10),
+        limit: int = Query(100, description="Número máximo", ge=1, len=1000)):
+    try:
+        logger.info(f"Buscando nomes populares pela bioma: {bioma}")
+
+        filter = {
+            "dat_hora_auto_infracao": {
+                "$gte": data_inicio,
+                "$lte": data_fim
+            }
+        }
+
+        if bioma:
+            filter["bioma"] = {"$regex": bioma, "$options": "i"}
+
+        infra_docs = await auto_infracao_collection.find(filter).skip(skip).limit(limit).to_list(length=None)
+
+        if not infra_docs:
+            logger.warning(f"Nenhuma auto infração encontrada no bioma: {bioma}")
+            raise HTTPException(status_code=404, detail="Nenhuma auto infração encontrada")
+
+        results = []
+        for infra in infra_docs:
+            infra_model = AutoInfracaoOut(**infra)
+
+            especimes = await especime_collection.find({
+                "seq_auto_infracao": infra_model.seq_auto_infracao
+            }).to_list(length=None)
+
+            especimes_models = [EspecimeOut(**e) for e in especimes]
+
+            results.append({
+                "auto_infracao": infra_model.dict(),
+                "especimes": [e.dict() for e in especimes_models]
+            })
+
+        logger.info(f"Encontradas {len(results)} autuações com espécimes")
+        return results
+
+    except HTTPException as e:
+        logger.error(f"Erro ao buscar nomes populares das espécimes: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro interno no servidor: {e}")
